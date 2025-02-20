@@ -24,7 +24,7 @@ function App() {
       let data = await fetch(URL);
       data.json().then((json) => {
         setTemp(json);
-        document.body.style.overflow = 'hidden';
+       
          
       })
     }
@@ -33,15 +33,7 @@ function App() {
 
   },[])
 
-  useEffect(() => {
-    const timer = setTimeout(() => console.log("Time Out"), 3000);
-    return () => clearTimeout(timer);
-  }, []);
 
-  let timer = null;
-  
-
- 
 
   return(
 
