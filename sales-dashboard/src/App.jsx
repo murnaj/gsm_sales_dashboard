@@ -9,7 +9,7 @@ import  Dashboard  from './Dashboard'
 import { useEffect } from "react";
 import { useState } from "react"
  const URL ='https://dummyjson.com/test'
-
+//  import Error from './Error';
 
 function App() {
 
@@ -33,6 +33,8 @@ function App() {
 
   },[])
 
+  
+
 
 
   return(
@@ -44,8 +46,8 @@ function App() {
 
     </div> */}
 
-    <div className=' h-[120vh] flex justify-center items-center bg-cover overflow-auto' 
-    style={{ "backgroundImage": "url('../src/assets/bg-img1.jpg" }}>
+    <div className=' h-[120vh] flex justify-center items-center bg-cover overflow-auto bg-blue-200' >
+   
 
 
         <Routes>
@@ -53,6 +55,15 @@ function App() {
           <Route path="registration" element={<Registration />} />
           <Route path="dashboard" element={<Dashboard />} />
         </Routes>
+
+        {/* <Router>
+  <Error>
+    <Routes>
+      <Route path="/" element={<App />} />
+      <Route path="/dashboard" element={<Dashboard />} />
+    </Routes>
+  </Error>
+</Router> */}
 
 
       </div></>
