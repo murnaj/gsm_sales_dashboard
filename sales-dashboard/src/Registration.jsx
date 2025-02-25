@@ -15,6 +15,7 @@ export const Registration = () => {
   const [confirmPassword, setConfirmPassword] = useState('') 
  
 
+  
   const userSchema = yup.object().shape({
     
     fullName: yup.string().required(),
@@ -125,7 +126,9 @@ export const Registration = () => {
       ) : (
         <p>Loading...</p>
       )}
-    </div><div className='bg-blue-950 border border-slate-400 rounded-md p-8 shadow-lg backdrop-filter backdrop-blur-sm bg-opacity-30 relative  overflow-auto'>
+    </div>
+    <div className='bg-blue-950 border border-slate-400 rounded-md p-8 shadow-lg backdrop-filter backdrop-blur-sm bg-opacity-30 relative  overflow-auto'>
+    <img  className='object-top w-20 m-2 p-2 ' src='https://flowbite.com/docs/images/logo.svg' alt='Dashboard Logo'/>
 
         <div>
           <h1 className='text-4xl text-blue-500 font-bold text-center mb-6'>GSM-Sales</h1>
