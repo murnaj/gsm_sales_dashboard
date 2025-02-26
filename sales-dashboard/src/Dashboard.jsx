@@ -3,6 +3,11 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Chart as ChartJS, defaults } from "chart.js/auto";
 import { Bar, Doughnut, Line } from "react-chartjs-2";
 
+// defaults.maintainAspectRatio = false;
+// defaults.responsive = true;
+
+
+
 const Dashboard = () => {
   // const navigate = useNavigate();
 
@@ -35,14 +40,16 @@ const Dashboard = () => {
 
   return (
     <>  
+
+    <div className='flex-auto overflow-auto w-full  ' >
      
-      <nav className=' w-full border-gray-200 dark:bg-blue-900 dark:border-gray-700 fixed top-0 size-15' >
+      <nav className=' w-full border-gray-200 dark:bg-blue-900 dark:border-gray-700 fixed top-0 size-13' >
       <div className='flex'>
       <div className="relative">
       
       <button onClick={toggleSidebar} className="relative">
         <img
-          className=" w-10 h-10 m-2"
+          className=" w-8 h-8 m-2"
           src="https://flowbite.com/docs/images/logo.svg"
           alt='Dashboard Logo'
         />
@@ -52,7 +59,7 @@ const Dashboard = () => {
       {isSidebarOpen && (
         <div className="absolute top-0 left-0 w-48 h-screen bg-blue-900 text-white shadow-lg z-50">
           <button onClick={toggleSidebar}>
-            <img className='m-2 p-2' src='https://flowbite.com/docs/images/logo.svg' alt='Dashboard Logo'/>
+            <img className='m-2  p-2' src='https://flowbite.com/docs/images/logo.svg' alt='Dashboard Logo'/>
             
             
             </button>
@@ -77,10 +84,10 @@ const Dashboard = () => {
         </div>
       )}
     </div>
-       <div className='text-white font-bold text-2xl m-3'> Dashboard
+       <div className='text-white font-bold text-2xl m-2'> Dashboard
        </div>
        </div>
-       <ul className='flex absolute top-0 right-160 m-3'>
+       <ul className='flex absolute top-0 right-160 m-2'>
   <li className='text-2xl mr-7'>
     <a className="text-blue-500 hover:text-blue-800" href="#">Services</a>
   </li>
@@ -104,13 +111,13 @@ const Dashboard = () => {
 
   </li>  */}
 <div className=''>
-<div className="absolute top-0 right-15 w-60 bg-blue-600 m-2 p-2 ">
+<div className="absolute top-0 right-15 w-55 bg-blue-600 mb-2 mt-1.5 p-1 rounded-md ">
       <input
         type="text"
         placeholder="Search Customers"
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
-        className=" border border-slate-700 bg-slate-500 w-2/3 h-8 text-center text-white rounded-md"
+        className=" border border-slate-700 bg-slate-500 w-2/3 h-8 text-center mr-2 text-white rounded-md"
       />
       <button
         onClick={handleSearch}
@@ -145,19 +152,19 @@ const Dashboard = () => {
         </nav> 
         <br />
 
-        <div className='flex w-full h-25 justify-between m-1 p-1 bg-blue-900 '>
-       <div className='bg-white m-2 p-2 flex justify-end'>
-        <span className=' text-slate-700 font-bold'>TRAFFIC</span>
+        <div className='flex w-full h-22 justify-between m-2 mt-15 p-2 bg-blue-900 '>
+       <div className='bg-white m-2 p-2 flex '>
+        <span className=' text-slate-700 font-bold '>TRAFFIC</span>
         <br /> 
-        <span className='float-left'>350,897</span>
+        <span className='float-left mt-4'>350,897</span>
         <img className='float-right m-1 p-1' src='/src/assets/icon-img1.png'></img>
 
        </div>
-       <div className='bg-white m-2 p-2 text-slate-700'>
+       <div className='bg-white m-2 p-2 text-slate-700 '>
         <span className=' text-slate-700 font-bold'>New Users</span>
         <br /> 
         <span className='float-left'>2,356</span>
-        <img className='float-right m-1 p-1' src='/src/assets/icon-img2.png'></img>
+        <img className='float-right mb-4' src='/src/assets/icon-img2.png'></img>
 
        </div>
        <div className='bg-white m-2 p-2 text-slate-700'>
@@ -179,9 +186,11 @@ const Dashboard = () => {
         
         <br/>
 
-        <div className='flex  m-2 h-80 w-full bg-white'>
-          Bar charts
-          <Bar clas
+         <div className='flex justify-between'>
+           
+        <div className='flex  h-80 w-160 m-2 p-4  bg-white'>
+          
+          <Bar 
            
            data={{
 
@@ -205,8 +214,51 @@ const Dashboard = () => {
 
         </div>
 
-        <footer className='flex absolute inset-x-0 bottom-0 h-16 m-2'>
-         <div className='flex justify-between'> 
+        <div className='Line Chart m-2 p-4 h-80 w-160 bg-white'>
+          <Line 
+          
+          data={{
+
+            labels: ['A','B','C'],
+            datasets:[{
+
+              label: 'Revenue',
+              data: [200,300,400],
+            },
+
+            {
+
+              label: 'Loss',
+              data: [90,80,70],
+            },
+
+            {
+
+            
+
+            }
+          ]
+           }}
+          
+          />
+
+        </div>
+
+        </div>
+
+        <div className= 'flex justify-between mr-2 ml-2 m-2 p-2 bg-white '>
+
+         <span>Name</span> 
+         <span>Total </span>
+         <span>Customers</span>
+         <span>Coverage</span>
+
+
+
+        </div>
+
+        <footer className='flex absolute inset-x-0 bottom-0 h-16 m-2 '>
+         <div className='flex justify-between mt-10'> 
           @
           2025
           GSM Sales
@@ -224,7 +276,7 @@ const Dashboard = () => {
          
         </footer>
                
-       
+       </div>
     </>
   );
 };

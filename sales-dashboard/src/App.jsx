@@ -42,11 +42,11 @@ function App() {
     <>
     {/* <div className="App">
       <h1>Method is {Temp.method}</h1>
-      <h1>Method is {Temp.status}</h1>o
+      <h1>Method is {Temp.status}</h1>
 
     </div> */}
 
-    <div className=' h-[140vh] bg-cover overflow-auto bg-amber-100' >
+    <div className=' h-[150vh] md:w-full flex justify-center bg-cover overflow-auto bg-amber-100' >
    
 
 

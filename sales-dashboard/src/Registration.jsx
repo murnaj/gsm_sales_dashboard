@@ -117,18 +117,19 @@ export const Registration = () => {
 
   return (
    
-    <><div>
-      <h1>API Response</h1>
-      {response ? (
-        <pre>{JSON.stringify(response, null, 2)}</pre>
-      ) : error ? (
-        <p>Error: {error}</p>
-      ) : (
-        <p>Loading...</p>
-      )}
-    </div>
-    <div className='bg-blue-950 border border-slate-400 rounded-md p-8 shadow-lg backdrop-filter backdrop-blur-sm bg-opacity-30 relative  overflow-auto'>
-    <img  className='object-top w-20 m-2 p-2 ' src='https://flowbite.com/docs/images/logo.svg' alt='Dashboard Logo'/>
+     <> 
+     {/* <div>
+       <h1>API Response</h1>
+       {response ? (
+         <pre>{JSON.stringify(response, null, 2)}</pre>
+       ) : error ? (
+         <p>Error: {error}</p>
+       ) : (
+         <p>Loading...</p>
+       )}
+     </div> */}
+    <div className='h-120 p-8 mt-17 mb-15 bg-blue-950 border border-slate-400 rounded-md  shadow-lg backdrop-filter backdrop-blur-sm bg-opacity-30 relative  overflow-auto'>
+    <img  className='object-top w-20 ml-25 p-2 ' src='https://flowbite.com/docs/images/logo.svg' alt='Dashboard Logo'/>
 
         <div>
           <h1 className='text-4xl text-blue-500 font-bold text-center mb-6'>GSM-Sales</h1>
