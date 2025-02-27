@@ -59,36 +59,36 @@ const Dashboard = () => {
       {isSidebarOpen && (
         <div className="absolute top-0 left-0 w-48 h-screen bg-blue-900 text-white shadow-lg z-50">
           <button onClick={toggleSidebar}>
-            <img className='m-2  p-2' src='https://flowbite.com/docs/images/logo.svg' alt='Dashboard Logo'/>
-            
+            <img className='mx-5 py-4 h-20' src='https://flowbite.com/docs/images/logo.svg' alt='Dashboard Logo'/>
+            <span className="mx-4" >GSM-SALES</span>
             
             </button>
            
-          <ul className="p-4 space-y-4">
+          <ul className="p-3 space-y-8">
           <li>
-              <a href="#" className="block hover:text-blue-400"> Dashboard</a>
+              <a href="#" className="block hover:text-blue-400 font-serif border-2  "> Dashboard</a>
             </li>
             <li>
-              <a href="#" className="block hover:text-blue-400">Customers</a>
+              <a href="#" className="block hover:text-blue-400 font-serif border-2">Customers</a>
             </li>
             <li>
-              <a href="#" className="block hover:text-blue-400">Sales</a>
+              <a href="#" className="block hover:text-blue-400 font-serif border-2">Sales</a>
             </li>
             <li>
-              <a href="#" className="block hover:text-blue-400">Reports</a>
+              <a href="#" className="block hover:text-blue-400 font-serif border-2">Reports</a>
             </li>
             <li>
-              <a href="#" className="block hover:text-blue-400">Targets</a>
+              <a href="#" className="block hover:text-blue-400 font-serif border-2">Targets</a>
             </li>
           </ul>
         </div>
       )}
     </div>
-       <div className='text-white font-bold text-2xl m-2'> Dashboard
+       <div className='text-white font-bold text-2xl m-2  '>Dashboard
        </div>
        </div>
-       <ul className='flex absolute top-0 right-160 m-2'>
-  <li className='text-2xl mr-7'>
+       <ul className='flex absolute top-0 right-150 m-2'>
+  <li className='text-2xl mr-6'>
     <a className="text-blue-500 hover:text-blue-800" href="#">Services</a>
   </li>
   <li className="text-2xl mr-7">
@@ -152,33 +152,33 @@ const Dashboard = () => {
         </nav> 
         <br />
 
-        <div className='flex w-full h-22 justify-between m-2 mt-15 p-2 bg-blue-900 '>
-       <div className='bg-white m-2 p-2 flex '>
-        <span className=' text-slate-700 font-bold '>TRAFFIC</span>
-        <br /> 
-        <span className='float-left mt-4'>350,897</span>
-        <img className='float-right m-1 p-1' src='/src/assets/icon-img1.png'></img>
+        <div className= "flex justify-between w-full h-20 m-2 mt-15 p-2 bg-blue-900 ">
+       <div className='bg-white m-1 p-1 w-30'>
+        <span className=' text-slate-700 font-bold ml-2 '>TRAFFIC</span>
+        
+        <span className='float-left mt-0.5 m-2'>350,897</span>
+        <img className=' float-right mr-3' src='/src/assets/icon-img1.png'></img>
 
        </div>
-       <div className='bg-white m-2 p-2 text-slate-700 '>
-        <span className=' text-slate-700 font-bold'>New Users</span>
+       <div className='bg-white m-1 p-1 text-slate-700 w-32'>
+        <span className=' text-slate-700 font-bold m-2 mb-2 '>New Users</span>
         <br /> 
-        <span className='float-left'>2,356</span>
-        <img className='float-right mb-4' src='/src/assets/icon-img2.png'></img>
+        <span className=' ml-2 mb-2'>2,356</span>
+        <img className=' mx-2 float-right' src='/src/assets/icon-img2.png'></img>
 
        </div>
-       <div className='bg-white m-2 p-2 text-slate-700'>
-       <span className=' text-slate-700 font-bold'>Sales</span>
+       <div className='bg-white m-1 p-1 text-slate-700 w-25'>
+       <span className=' text-slate-700 font-bold m-1'>Sales</span>
        <br /> 
-       <span className='float-left'>924</span>
-       <img className='float-right m-0.5 p-0.5' src='/src/assets/icon-img3.png'></img>
+       <span className='float-left mx-1'>924</span>
+       <img className='float-right ml-4 ' src='/src/assets/icon-img3.png'></img>
 
        </div>
-       <div className='bg-white m-2 p-2 text-slate-700'>
-       <span className=' text-slate-700 font-bold'>PERFORMANCE</span>
+       <div className='bg-white m-1 p-1 text-slate-700 w-45'>
+       <span className=' text-slate-700 font-bold mx-2'>PERFORMANCE</span>
         <br /> 
-        <span className='float-left'>49,65%</span> 
-        <img className='float-right m-0.5 p-0.5' src='/src/assets/icon-img4.png'></img>
+        <span className='float-left mx-2'>49,65%</span> 
+        <img className='float-right ml-2 ' src='/src/assets/icon-img4.png'></img>
 
        </div>
 
@@ -194,18 +194,19 @@ const Dashboard = () => {
            
            data={{
 
-            labels: ['A','B','C'],
+            labels: ['June','July','Aug','Sept','Oct','Nov','Dec','Jan','Feb'],
             datasets:[{
 
               label: 'Revenue',
-              data: [200,300,400],
+              data: [200,300,400,500,600,700,800,900,1000],
             },
 
             {
 
               label: 'Loss',
-              data: [90,80,70],
+              data: [90,80,70,60,50,40,30,20,80],
             }
+            
 
           ]
            }}
@@ -244,32 +245,113 @@ const Dashboard = () => {
 
         </div>
 
-        </div>
+        
 
-        <div className= 'flex justify-between mr-2 ml-2 m-2 p-2 bg-white '>
-
-         <span>Name</span> 
-         <span>Total </span>
-         <span>Customers</span>
-         <span>Coverage</span>
 
 
 
         </div>
 
-        <footer className='flex absolute inset-x-0 bottom-0 h-16 m-2 '>
+        <div className= 'flex justify-evenly mx-15 m-2 p-2 w-300 bg-blue-100  rounded-md border-2 border-blue-800 '>
+
+         <div>
+          <span className="mx-2 font-bold">Name</span>
+         <ul className="p-2 space-y-2">
+          <li>
+              <a href="#" className="block hover:text-blue-400">KHI01 - ASM - Waqas Uddin</a>
+            </li>
+            <li>
+              <a href="#" className="block hover:text-blue-400">KHI01 - SPO - Waqar Abdul Rasheed</a>
+            </li>
+            <li>
+              <a href="#" className="block hover:text-blue-400">KHI01 - SPO - Sardar Shahroz Khan</a>
+            </li>
+            <li>
+              <a href="#" className="block hover:text-blue-400">KHI01 - SPO - Vacant KHI-05</a>
+            </li>
+            <li>
+              <a href="#" className="block hover:text-blue-400">KHI01 - SPO - Athar Khan</a>
+            </li>
+          </ul>
+          </div> 
+         <div>
+          <span className="mx-2 font-bold">Total</span>
+         <ul className="p-2 space-y-2">
+          <li>
+              <a  className="block ">5,163</a>
+            </li>
+            <li>
+              <a  className="block ">1,708</a>
+            </li>
+            <li>
+              <a  className="block ">1,385</a>
+            </li>
+            <li>
+              <a  className="block ">812</a>
+            </li>
+            <li>
+              <a  className="block ">746</a>
+            </li>
+          </ul>
+         </div>
+         <div>
+          <span className="mx-1 font-bold">Customers</span>
+         <ul className="p-2 space-y-2">
+          <li>
+              <a  className="block ">874</a>
+            </li>
+            <li>
+              <a  className="block ">193</a>
+            </li>
+            <li>
+              <a  className="block ">26</a>
+            </li>
+            <li>
+              <a  className="block ">213</a>
+            </li>
+            <li>
+              <a  className="block ">203</a>
+            </li>
+          </ul>
+         </div>
+          <div>
+          <span className="mx-1 font-bold">Coverage
+          </span>
+         <ul className="p-2 space-y-2">
+          <li>
+              <a  className="block ">16.93%</a>
+            </li>
+            <li>
+              <a  className="block ">11.30%</a>
+            </li>
+            <li>
+              <a  className="block ">1.88%</a>
+            </li>
+            <li>
+              <a  className="block ">26.23%</a>
+            </li>
+            <li>
+              <a  className="block ">27.21%</a>
+            </li>
+          </ul>
+         </div>
+
+
+        </div>
+
+        <footer className='flex  h-16 m-2 '>
          <div className='flex justify-between mt-10'> 
           @
           2025
           GSM Sales
 
          
-         <div className='m-1 absolute right-0 space-x-4 '>
-            <a className='hover:text-blue-500' href='#'>Terms</a>
+         <div className='m-1 absolute right-0 space-x-6 '>
+            <a className='hover:text-blue-500 focus:outline-none focus:ring' href='#'>Terms</a>
           
-            <a className='hover:text-blue-500' href='#' >About Us</a>
+            <a className='hover:text-blue-500 focus:outline-none focus:ring' href='#' >About Us</a>
            
-            <a className='hover:text-blue-500' href='#'>Blog</a>
+            <a className='hover:text-blue-500 focus:outline-none focus:ring' href='#'>Blog</a>
            
             </div>
             </div>
