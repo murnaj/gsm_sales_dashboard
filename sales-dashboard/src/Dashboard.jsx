@@ -87,7 +87,7 @@ const Dashboard = () => {
        <div className='text-white font-bold text-2xl m-2  '>Dashboard
        </div>
        </div>
-       <ul className='flex absolute top-0 right-150 m-2'>
+       <ul className='flex absolute top-0 right-145 m-2'>
   <li className='text-2xl mr-6'>
     <a className="text-blue-500 hover:text-blue-800" href="#">Services</a>
   </li>
@@ -339,7 +339,7 @@ const Dashboard = () => {
 
         </div>
 
-        <footer className='flex  h-16 m-2 '>
+        <footer className='flex h-16 m-2 '>
          <div className='flex justify-between mt-10'> 
           @
           2025

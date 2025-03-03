@@ -51,7 +51,7 @@ const Login = () => {
   
     return (
     
-    <div className='h-120 mt-15 mr-4 ml-4 mb-15 p-8 flex justify-center bg-blue-950 border border-slate-400 rounded-md  shadow-lg backdrop-filter backdrop-blur-sm bg-opacity-30 relative overflow-auto'>
+    <div className='h-full mt-15 mr-4 ml-4 mb-15 p-8 flex justify-center bg-blue-950 border border-slate-400 rounded-md'>
         <div>
         <img  className=' items-center  w-20 ml-25 p-2 ' src='https://flowbite.com/docs/images/logo.svg' alt='Dashboard Logo'/>
         <h1 className='text-4xl text-blue-500 font-bold text-center mb-6'>GSM-Sales</h1>
