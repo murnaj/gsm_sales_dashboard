@@ -41,9 +41,9 @@ const Dashboard = () => {
   return (
     <>  
 
-    <div className='flex-auto overflow-auto w-full  ' >
+    <div className='flex-auto w-full h-full' >
      
-      <nav className=' w-full border-gray-200 dark:bg-blue-900 dark:border-gray-700 fixed top-0 size-13' >
+      <nav className=' w-full border-gray-200 dark:bg-blue-900 dark:border-gray-700 absolute top-0 right-0 size-13' >
       <div className='flex'>
       <div className="relative">
       
@@ -88,7 +88,7 @@ const Dashboard = () => {
        </div>
        </div>
        <ul className='flex absolute top-0 right-145 m-2'>
-  <li className='text-2xl mr-6'>
+  <li className=' text-2xl mr-6'>
     <a className="text-blue-500 hover:text-blue-800" href="#">Services</a>
   </li>
   <li className="text-2xl mr-7">
@@ -152,7 +152,7 @@ const Dashboard = () => {
         </nav> 
         <br />
 
-        <div className= "flex justify-between w-full h-20 m-2 mt-15 p-2 bg-blue-900 ">
+        <div className= "flex  justify-between w-full h-20 ml-2 mt-15 p-2 bg-blue-900 ">
        <div className='bg-white m-1 p-1 w-30'>
         <span className=' text-slate-700 font-bold ml-2 '>TRAFFIC</span>
         
@@ -198,13 +198,13 @@ const Dashboard = () => {
             datasets:[{
 
               label: 'Revenue',
-              data: [200,300,400,500,600,700,800,900,1000],
+              data: [200,300,400,500,600,700,800,900,1500],
             },
 
             {
 
               label: 'Loss',
-              data: [90,80,70,60,50,40,30,20,80],
+              data: [90,80,70,60,50,40,30,20,1700],
             }
             
 
@@ -220,17 +220,17 @@ const Dashboard = () => {
           
           data={{
 
-            labels: ['A','B','C'],
+            labels: ['June','July','Aug','Sept','Oct','Nov','Dec','Jan','Feb'],
             datasets:[{
 
               label: 'Revenue',
-              data: [200,300,400],
+              data: [200,300,400,500,600,700,800,900,1500],
             },
 
             {
 
               label: 'Loss',
-              data: [90,80,70],
+              data: [90,80,70,60,50,40,30,20,1700],
             },
 
             {
@@ -243,16 +243,17 @@ const Dashboard = () => {
           
           />
 
-        </div>
-
-        
-
-
-
+          
 
         </div>
 
-        <div className= 'flex justify-evenly mx-15 m-2 p-2 w-300 bg-blue-100  rounded-md border-2 border-blue-800 '>
+       
+
+
+
+        </div>
+
+        <div className= 'flex justify-evenly mx-20 m-2 p-2 w-280 bg-blue-100  rounded-md border-2 border-blue-800 '>
 
          <div>
           <span className="mx-2 font-bold">Name</span>
@@ -339,11 +340,12 @@ const Dashboard = () => {
 
         </div>
 
-        <footer className='flex h-16 m-2 '>
+        <footer className='flex h-16 m-1'>
          <div className='flex justify-between mt-10'> 
-          @
+         <span className='absolute '> @
           2025
           GSM Sales
+          </span>
 
          
          <div className='m-1 absolute right-0 space-x-6 '>

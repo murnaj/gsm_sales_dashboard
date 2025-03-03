@@ -128,7 +128,8 @@ export const Registration = () => {
          <p>Loading...</p>
        )}
      </div> */}
-    <div className='h-120 p-8 mt-17 mb-15 bg-blue-950 border border-slate-400 rounded-md  shadow-lg backdrop-filter backdrop-blur-sm bg-opacity-30 relative  overflow-auto'>
+    <div className='h-120 w-90 justify-center p-8 mt-17 mb-15 bg-blue-950 border border-slate-400 rounded-md  
+    flex-grow  flex-col items-center  max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
     <img  className='object-top w-20 ml-25 p-2 ' src='https://flowbite.com/docs/images/logo.svg' alt='Dashboard Logo'/>
 
         <div>

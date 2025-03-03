@@ -48,7 +48,7 @@ function App() {
 
     <div className=' h-full w-full flex flex-col justify-center bg-cover bg-amber-100 overflow-auto' >
    
-    <div className="flex-grow flex flex-col items-center justify-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
 
         <Routes>
           <Route path="login" element={<Login />} />
@@ -65,7 +65,7 @@ function App() {
   </Error>
 </Router> */}
   
-  </div>
+  
 
       </div></>
      
