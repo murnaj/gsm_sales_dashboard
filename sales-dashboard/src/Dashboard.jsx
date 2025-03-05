@@ -22,6 +22,24 @@ const Dashboard = () => {
   //   return () => clearTimeout(timeout);
   // }, [navigate]);
 
+  const [activeTab, setActiveTab] = useState(0);
+  
+ 
+  const tabs = ["Zone1","Zone2", "Zone3","Zone4"];
+  
+  const contents = [
+    
+    { name: "John Doe", total: 12, customers: 8, coverage: "80%" },
+    { name: "Jane Smith", total: 15, customers: 12, coverage: "90%" },
+    { name: "Mark Lee", total: 10, customers: 7, coverage: "70%" },
+    { name: "Anna Taylor", total: 18, customers: 15, coverage: "85%" },
+
+  ]
+
+
+
+
+
   const [showDropdown, setShowDropdown] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
@@ -342,36 +360,55 @@ const Dashboard = () => {
         </div> */}
 
 
-        <div className='bg-blue-400'>
-          <div className='text-sm font-medium flex justify-center'>
-            Employee Status
-            </div>
-          
-        <div class=" flex justify-center text-sm font-medium  text-blue-600 border-b border-gray-200 dark:text-blue-600 dark:border-blue-700">
-    <ul class="flex flex-wrap -mb-px">
-        <li class="me-2">
-            <a href="#" class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-blue-600 hover:border-gray-300 dark:hover:text-gray-300">Zone 1</a>
-        </li>
-        <li class="me-2">
-            <a href="#" class="inline-block p-4 text-blue-600 border-b-2 border-blue-600 rounded-t-lg active dark:text-blue-500 dark:border-blue-500" aria-current="page">Zone 2</a>
-        </li>
-        <li class="me-2">
-            <a href="#" class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">Zone 3</a>
-        </li>
-        <li class="me-2">
-            <a href="#" class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">Zone 4</a>
-        </li>
-        
-    </ul>
-</div>
+<div className="bg-blue-400 w-[600px] ml-80 mt-5 rounded-3xl border p-4  ">
+      <div className="text-md font-medium flex justify-center mb-4">
+        Employee Status
+      </div>
 
+      
+      <div className="flex justify-center mb-4">
+        {tabs.map((tab, index) => (
+          <button
+            onClick={() => setActiveTab(index)}
+            key={`tab_${index}`}
+            className={`px-4 py-2 mx-2 rounded-md ${
+              activeTab === index
+                ? "bg-blue-600 text-white"
+                : "bg-gray-200 hover:bg-blue-800 hover:text-white"
+            }`}
+          >
+            {tab}
+          </button>
+        ))}
+      </div>
 
-
-        </div>
+     
+      <div className="flex justify-center mt-4">
+        <table className="w-full text-sm text-left text-gray-500">
+          <thead className="text-xs text-gray-700 uppercase bg-gray-100">
+            <tr>
+              <th className="px-4 py-2">Name</th>
+              <th className="px-4 py-2">Total</th>
+              <th className="px-4 py-2">Customers</th>
+              <th className="px-4 py-2">Coverage</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr className="bg-white border-b hover:bg-gray-50">
+              <td className="px-4 py-2">{contents[activeTab].name}</td>
+              <td className="px-4 py-2">{contents[activeTab].total}</td>
+              <td className="px-4 py-2">{contents[activeTab].customers}</td>
+              <td className="px-4 py-2">{contents[activeTab].coverage}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
 
         <footer className='flex h-16 m-1'>
          <div className='flex justify-between mt-10'> 
-         <span className='absolute '> @
+         <span className='absolute'> 
+          @
           2025
           GSM Sales
           </span>
