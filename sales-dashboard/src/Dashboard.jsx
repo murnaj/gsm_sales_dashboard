@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Chart as ChartJS, defaults } from "chart.js/auto";
-import { Bar, Doughnut, Line } from "react-chartjs-2";
+import { Chart as ChartJS, defaults, BarElement } from "chart.js/auto";
+import { Bar, Line } from "react-chartjs-2";
 
 // defaults.maintainAspectRatio = false;
 // defaults.responsive = true;
@@ -66,7 +66,7 @@ const Dashboard = () => {
            
           <ul className="p-3 space-y-8">
           <li>
-              <a href="#" className="block hover:text-blue-400 font-serif border-2  "> Dashboard</a>
+              <a href="#" className="block hover:text-blue-400 font-serif border-2  ">Dashboard</a>
             </li>
             <li>
               <a href="#" className="block hover:text-blue-400 font-serif border-2">Customers</a>
@@ -110,20 +110,22 @@ const Dashboard = () => {
     <button  data-dropdown-toggle="dropdownDelay" data-dropdown-delay="500" data-dropdown-trigger="hover" className="text-blue-500 hover:text-blue-800" type='button' >Sales</button>
 
   </li>  */}
-<div className=''>
-<div className="absolute top-0 right-15 w-55 bg-blue-600 mb-2 mt-1.5 p-1 rounded-md ">
+<div className='search bar'>
+<div className="absolute top-0 right-15 w-52   mt-1.5 p-1 rounded-md ">
       <input
         type="text"
-        placeholder="Search Customers"
+        placeholder="Search"
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
-        className=" border border-slate-700 bg-slate-500 w-2/3 h-8 text-center mr-2 text-white rounded-md"
+        className=" border border-slate-700 bg-slate-500 w-35 h-8 text-center mr-4 text-white rounded-md"
       />
       <button
         onClick={handleSearch}
-        className=" text-blue-600 bg-white w-15 h-6 rounded-md hover:bg-blue-950"
+         className="  w-8 h-6 ml-1  rounded-md " 
       >
-      Search
+     <svg class="w-8 h-6 mt-1  text-gray-800"  xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+  <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"/>
+</svg>
       </button>
     </div>
 
@@ -134,7 +136,10 @@ const Dashboard = () => {
           type="button"
           onClick={() => setShowDropdown(!showDropdown)}
         >
-          <img  src="/src/assets/admin-img-2.png" alt="Admin Logo" />
+          <svg class="w-8 h-8 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+  <path fill-rule="evenodd" d="M12 20a7.966 7.966 0 0 1-5.002-1.756l.002.001v-.683c0-1.794 1.492-3.25 3.333-3.25h3.334c1.84 0 3.333 1.456 3.333 3.25v.683A7.966 7.966 0 0 1 12 20ZM2 12C2 6.477 6.477 2 12 2s10 4.477 10 10c0 5.5-4.44 9.963-9.932 10h-.138C6.438 21.962 2 17.5 2 12Zm10-5c-1.84 0-3.333 1.455-3.333 3.25S10.159 13.5 12 13.5c1.84 0 3.333-1.455 3.333-3.25S13.841 7 12 7Z" clip-rule="evenodd"/>
+</svg>
+
         </button>
 
         {showDropdown && (
@@ -232,12 +237,8 @@ const Dashboard = () => {
               label: 'Loss',
               data: [90,80,70,60,50,40,30,20,1700],
             },
-
-            {
-
-            
-
-            }
+             
+           
           ]
            }}
           
@@ -253,7 +254,7 @@ const Dashboard = () => {
 
         </div>
 
-        <div className= 'flex justify-evenly mx-20 m-2 p-2 w-280 bg-blue-100  rounded-md border-2 border-blue-800 '>
+        {/* <div className= 'flex justify-evenly mx-20 m-2 p-2 w-280 bg-blue-100  rounded-md border-2 border-blue-800 '>
 
          <div>
           <span className="mx-2 font-bold">Name</span>
@@ -336,6 +337,34 @@ const Dashboard = () => {
             </li>
           </ul>
          </div>
+
+
+        </div> */}
+
+
+        <div className='bg-blue-400'>
+          <div className='text-sm font-medium flex justify-center'>
+            Employee Status
+            </div>
+          
+        <div class=" flex justify-center text-sm font-medium  text-blue-600 border-b border-gray-200 dark:text-blue-600 dark:border-blue-700">
+    <ul class="flex flex-wrap -mb-px">
+        <li class="me-2">
+            <a href="#" class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-blue-600 hover:border-gray-300 dark:hover:text-gray-300">Zone 1</a>
+        </li>
+        <li class="me-2">
+            <a href="#" class="inline-block p-4 text-blue-600 border-b-2 border-blue-600 rounded-t-lg active dark:text-blue-500 dark:border-blue-500" aria-current="page">Zone 2</a>
+        </li>
+        <li class="me-2">
+            <a href="#" class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">Zone 3</a>
+        </li>
+        <li class="me-2">
+            <a href="#" class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">Zone 4</a>
+        </li>
+        
+    </ul>
+</div>
+
 
 
         </div>
