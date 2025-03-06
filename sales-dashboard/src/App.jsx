@@ -46,7 +46,8 @@ function App() {
 
     </div> */}
 
-    <div className=' h-full w-full flex flex-col justify-center bg-cover bg-amber-100 overflow-auto' >
+    <div className=' h-full w-full flex flex-col justify-center bg-cover bg-gradient-to-r
+                from-blue-700 to-purple-900 overflow-auto' >
 
    
    

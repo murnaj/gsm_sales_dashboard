@@ -29,10 +29,28 @@ const Dashboard = () => {
   
   const contents = [
     
-    { name: "John Doe", total: 12, customers: 8, coverage: "80%" },
-    { name: "Jane Smith", total: 15, customers: 12, coverage: "90%" },
-    { name: "Mark Lee", total: 10, customers: 7, coverage: "70%" },
-    { name: "Anna Taylor", total: 18, customers: 15, coverage: "85%" },
+    [
+      { name: "John Doe", total: 12, customers: 8, coverage: "80%" },
+      { name: "Alice Brown", total: 14, customers: 9, coverage: "85%" },
+      { name: "Ali", total: 10, customers: 15, coverage: "95%" },
+    ],
+    [
+      { name: "Jane Smith", total: 15, customers: 12, coverage: "90%" },
+      { name: "Bob Martin", total: 10, customers: 7, coverage: "70%" },
+      { name: "Ali", total: 10, customers: 15, coverage: "95%" },
+    ],
+    [
+      { name: "Mark Lee", total: 10, customers: 7, coverage: "70%" },
+      { name: "Sarah Wilson", total: 16, customers: 13, coverage: "95%" },
+      { name: "Ali", total: 10, customers: 15, coverage: "95%" },
+    ],
+    [
+      { name: "Anna Taylor", total: 18, customers: 15, coverage: "85%" },
+      { name: "Tom Hanks", total: 11, customers: 8, coverage: "75%" },
+      { name: "Ali", total: 10, customers: 15, coverage: "95%" },
+    ],
+
+   
 
   ]
 
@@ -61,7 +79,8 @@ const Dashboard = () => {
 
     <div className='flex-auto w-full h-full' >
      
-      <nav className=' w-full border-gray-200 dark:bg-blue-900 dark:border-gray-700 absolute top-0 right-0 size-13' >
+      <nav className=' w-full dark:bg-gradient-to-r
+                from-blue-800 to-purple-950 border-gray-700 absolute top-0 right-0 size-13' >
       <div className='flex'>
       <div className="relative">
       
@@ -75,7 +94,8 @@ const Dashboard = () => {
 
      
       {isSidebarOpen && (
-        <div className="absolute top-0 left-0 w-48 h-screen bg-blue-900 text-white shadow-lg z-50">
+        <div className="absolute top-0 left-0 w-48 h-screen bg-gradient-to-r
+                from-blue-800 to-purple-950 text-white shadow-lg z-50">
           <button onClick={toggleSidebar}>
             <img className='mx-5 py-4 h-20' src='https://flowbite.com/docs/images/logo.svg' alt='Dashboard Logo'/>
             <span className="mx-4" >GSM-SALES</span>
@@ -84,7 +104,7 @@ const Dashboard = () => {
            
           <ul className="p-3 space-y-8">
           <li>
-              <a href="#" className="block hover:text-blue-400 font-serif border-2  ">Dashboard</a>
+              <a href="#" className="block hover:text-blue-400 font-serif border-2">Dashboard</a>
             </li>
             <li>
               <a href="#" className="block hover:text-blue-400 font-serif border-2">Customers</a>
@@ -107,17 +127,17 @@ const Dashboard = () => {
        </div>
        <ul className='flex absolute top-0 right-145 m-2'>
   <li className=' text-2xl mr-6'>
-    <a className="text-blue-500 hover:text-blue-800" href="#">Services</a>
+    <a className="text-blue-500 hover:text-blue-600" href="#">Services</a>
   </li>
   <li className="text-2xl mr-7">
-    <a className="text-blue-500 hover:text-blue-800" href="#">Current Rate</a>
+    <a className="text-blue-500 hover:text-blue-600" href="#">Current Rate</a>
   </li>
   <li className="text-2xl mr-7">
-    <a className="text-blue-500 hover:text-blue-800" href="#">Contact</a>
+    <a className="text-blue-500 hover:text-blue-600" href="#">Contact</a>
   </li> 
   <details className='dropdown'>
-  <summary className="text-blue-500 hover:text-blue-800  m-0 text-2xl btn">Sales</summary>
-  <ul className="menu dropdown-content text-blue-500 font-bold bg-blue-950">
+  <summary className="text-blue-500 hover:text-blue-600  m-0 text-2xl btn">Sales</summary>
+  <ul className="menu dropdown-content text-blue-500 font-bold bg-blue-900">
     <li><a className='p-2 m-2 hover:text-blue-800'>Monthly</a></li>
     <li><a className='p-2 m-2 hover:text-blue-800'>Yearly</a></li>
   </ul>
@@ -135,7 +155,7 @@ const Dashboard = () => {
         placeholder="Search"
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
-        className=" border border-slate-700 bg-slate-500 w-35 h-8 text-center mr-4 text-white rounded-md"
+        className=" border border-slate-700 bg-white w-35 h-8 text-center mr-4 text-blue-900 rounded-md"
       />
       <button
         onClick={handleSearch}
@@ -165,7 +185,7 @@ const Dashboard = () => {
             <Link
               className="block text-blue-500 font-bold hover:text-blue-700"
               to="/login"
-            > Login
+            > Log Out
             </Link>
             <span className=' text-blue-500 font-bold hover:text-blue-700'>Settings</span>
           </div>
@@ -175,8 +195,8 @@ const Dashboard = () => {
         </nav> 
         <br />
 
-        <div className= "flex  justify-between w-full h-20 ml-2 mt-15 p-2 bg-blue-900 ">
-       <div className='bg-white m-1 p-1 w-30'>
+        {/* <div className= "flex  w-full h-20 ml-2 mt-15 p-2 dark:bg-blue-800 absolute inset-0  z-10 ">
+       <div className='bg-white m-1 p-1 w-30 absolute inset-0 z-20'>
         <span className=' text-slate-700 font-bold ml-2 '>TRAFFIC</span>
         
         <span className='float-left mt-0.5 m-2'>350,897</span>
@@ -205,7 +225,70 @@ const Dashboard = () => {
 
        </div>
 
+        </div> */}
+
+
+
+      <div class="relative h-30 bg-gradient-to-r
+                from-blue-600 to-purple-800 mt-20">
+        
+        <div class="absolute inset-0 
+                    bg-gray-800 opacity-50 
+                    z-10">
         </div>
+
+        <div class="absolute inset-0  flex
+                    items-center justify-between
+                    text-white z-20  m-4">
+            <div class="bg-gray-500 p-2 
+                        rounded-lg shadow-lg w-30">
+                            <svg class="w-6 h-6 text-gray-800 dark:text-white float-right" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4.5V19a1 1 0 0 0 1 1h15M7 14l4-4 4 4 5-5m0 0h-3.207M20 9v3.207"/>
+</svg>
+                <h1 class="text-md font-bold mb-1 ">
+                    Item Sales
+                </h1>
+                <p class="text-sm text-center">
+                    YTD TP Value
+                </p>
+            </div>
+            <div class="bg-gray-500 p-2 
+                        rounded-lg shadow-lg w-30">
+    <svg class="w-6 h-6 text-gray-800 dark:text-white float-right" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4.5V19a1 1 0 0 0 1 1h15M7 14l4-4 4 4 5-5m0 0h-3.207M20 9v3.207"/>
+</svg>
+
+                <h1 class="text-md font-bold mb-1">
+                   New Sales
+                </h1>
+                <p class="text-sm text-center">
+                    YTD TP Value
+                </p>
+            </div>
+            <div class="bg-gray-500 p-2 
+                        rounded-lg shadow-lg w-30">
+                          <svg className="w-6 h-6 text-gray-800 dark:text-white float-right" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+  <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312"/>
+</svg>
+
+                <h1 class="text-md font-bold mb-1">
+                    Total Products
+                </h1>
+                <p class="text-sm text-center">
+                    YTD TP Value
+                </p>
+            </div>
+            <div class="bg-gray-500 p-2 
+                        rounded-lg shadow-lg w-30">
+                <h1 class="text-md font-bold mb-1">
+                    New Visitor
+                </h1>
+                <p class="text-sm text-center">
+                    YTD TP Value
+                </p>
+            </div>
+        </div>
+    </div>
         
         <br/>
 
@@ -221,13 +304,22 @@ const Dashboard = () => {
             datasets:[{
 
               label: 'Revenue',
-              data: [200,300,400,500,600,700,800,900,1500],
+              data: [200,300,400,500,600,700,800,900,500],
+              backgroundColor: [
+                "rgba(43, 63, 229, 0.8 )"
+              ]
+
+              
             },
 
             {
 
               label: 'Loss',
-              data: [90,80,70,60,50,40,30,20,1700],
+              data: [90,80,70,60,50,40,30,20,700],
+              backgroundColor: [
+                "rgba(250, 192, 19, 0.8 )"
+              ]
+
             }
             
 
@@ -247,13 +339,23 @@ const Dashboard = () => {
             datasets:[{
 
               label: 'Revenue',
-              data: [200,300,400,500,600,700,800,900,1500],
+              data: [200,600,500,700,600,800,700,750,1200],
+
+                backgroundColor: [
+                  "rgba(43, 63, 229, 0.8 )"
+                ]
+
             },
 
             {
 
               label: 'Loss',
               data: [90,80,70,60,50,40,30,20,1700],
+
+               backgroundColor: [
+                  "rgba(54, 162, 235, 0.5 )"
+               ]
+              
             },
              
            
@@ -272,100 +374,14 @@ const Dashboard = () => {
 
         </div>
 
-        {/* <div className= 'flex justify-evenly mx-20 m-2 p-2 w-280 bg-blue-100  rounded-md border-2 border-blue-800 '>
-
-         <div>
-          <span className="mx-2 font-bold">Name</span>
-         <ul className="p-2 space-y-2">
-          <li>
-              <a href="#" className="block hover:text-blue-400">KHI01 - ASM - Waqas Uddin</a>
-            </li>
-            <li>
-              <a href="#" className="block hover:text-blue-400">KHI01 - SPO - Waqar Abdul Rasheed</a>
-            </li>
-            <li>
-              <a href="#" className="block hover:text-blue-400">KHI01 - SPO - Sardar Shahroz Khan</a>
-            </li>
-            <li>
-              <a href="#" className="block hover:text-blue-400">KHI01 - SPO - Vacant KHI-05</a>
-            </li>
-            <li>
-              <a href="#" className="block hover:text-blue-400">KHI01 - SPO - Athar Khan</a>
-            </li>
-          </ul>
-          </div> 
-         <div>
-          <span className="mx-2 font-bold">Total</span>
-         <ul className="p-2 space-y-2">
-          <li>
-              <a  className="block ">5,163</a>
-            </li>
-            <li>
-              <a  className="block ">1,708</a>
-            </li>
-            <li>
-              <a  className="block ">1,385</a>
-            </li>
-            <li>
-              <a  className="block ">812</a>
-            </li>
-            <li>
-              <a  className="block ">746</a>
-            </li>
-          </ul>
-         </div>
-         <div>
-          <span className="mx-1 font-bold">Customers</span>
-         <ul className="p-2 space-y-2">
-          <li>
-              <a  className="block ">874</a>
-            </li>
-            <li>
-              <a  className="block ">193</a>
-            </li>
-            <li>
-              <a  className="block ">26</a>
-            </li>
-            <li>
-              <a  className="block ">213</a>
-            </li>
-            <li>
-              <a  className="block ">203</a>
-            </li>
-          </ul>
-         </div>
-          <div>
-          <span className="mx-1 font-bold">Coverage
-          </span>
-         <ul className="p-2 space-y-2">
-          <li>
-              <a  className="block ">16.93%</a>
-            </li>
-            <li>
-              <a  className="block ">11.30%</a>
-            </li>
-            <li>
-              <a  className="block ">1.88%</a>
-            </li>
-            <li>
-              <a  className="block ">26.23%</a>
-            </li>
-            <li>
-              <a  className="block ">27.21%</a>
-            </li>
-          </ul>
-         </div>
+        
 
 
-        </div> */}
-
-
-<div className="bg-blue-400 w-[600px] ml-80 mt-5 rounded-3xl border p-4  ">
+       <div className="bg-gradient-to-r
+                from-blue-700 to-purple-900 w-[600px] ml-82 mt-5 rounded-3xl border p-4  ">
       <div className="text-md font-medium flex justify-center mb-4">
         Employee Status
       </div>
-
-      
       <div className="flex justify-center mb-4">
         {tabs.map((tab, index) => (
           <button
@@ -373,8 +389,8 @@ const Dashboard = () => {
             key={`tab_${index}`}
             className={`px-4 py-2 mx-2 rounded-md ${
               activeTab === index
-                ? "bg-blue-600 text-white"
-                : "bg-gray-200 hover:bg-blue-800 hover:text-white"
+                ? "bg-blue-700 text-white"
+                : "bg-gray-400 hover:bg-blue-800 hover:text-white"
             }`}
           >
             {tab}
@@ -384,8 +400,8 @@ const Dashboard = () => {
 
      
       <div className="flex justify-center mt-4">
-        <table className="w-full text-sm text-left text-gray-500">
-          <thead className="text-xs text-gray-700 uppercase bg-gray-100">
+        <table className="w-full text-sm text-left text-black">
+          <thead className="text-xs text-gray-700 uppercase bg-gray-200">
             <tr>
               <th className="px-4 py-2">Name</th>
               <th className="px-4 py-2">Total</th>
@@ -394,13 +410,19 @@ const Dashboard = () => {
             </tr>
           </thead>
           <tbody>
-            <tr className="bg-white border-b hover:bg-gray-50">
-              <td className="px-4 py-2">{contents[activeTab].name}</td>
-              <td className="px-4 py-2">{contents[activeTab].total}</td>
-              <td className="px-4 py-2">{contents[activeTab].customers}</td>
-              <td className="px-4 py-2">{contents[activeTab].coverage}</td>
-            </tr>
+          {contents[activeTab].map((item, index) => (
+              <tr
+                key={`row_${index}`}
+                className="bg-gray-400 border-b hover:bg-gray-50"
+              >
+                <td className="px-4 py-2">{item.name}</td>
+                <td className="px-4 py-2">{item.total}</td>
+                <td className="px-4 py-2">{item.customers}</td>
+                <td className="px-4 py-2">{item.coverage}</td>
+              </tr>
+            ))}
           </tbody>
+
         </table>
       </div>
     </div>
