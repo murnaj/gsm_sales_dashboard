@@ -30,23 +30,23 @@ const Dashboard = () => {
   const contents = [
     
     [
-      { name: "John Doe", total: 12, customers: 8, coverage: "80%" },
-      { name: "Alice Brown", total: 14, customers: 9, coverage: "85%" },
+      { name: "Ahmed", total: 12, customers: 8, coverage: "80%" },
+      { name: "Haris", total: 14, customers: 9, coverage: "85%" },
       { name: "Ali", total: 10, customers: 15, coverage: "95%" },
     ],
     [
-      { name: "Jane Smith", total: 15, customers: 12, coverage: "90%" },
-      { name: "Bob Martin", total: 10, customers: 7, coverage: "70%" },
+      { name: "Kumail", total: 15, customers: 12, coverage: "90%" },
+      { name: "Murtaza", total: 10, customers: 7, coverage: "70%" },
       { name: "Ahmed", total: 8, customers: 10, coverage: "75%" },
     ],
     [
-      { name: "Mark Lee", total: 10, customers: 7, coverage: "70%" },
-      { name: "Sarah Wilson", total: 16, customers: 13, coverage: "95%" },
+      { name: "Alyan", total: 10, customers: 7, coverage: "70%" },
+      { name: "Sarah", total: 16, customers: 13, coverage: "95%" },
       { name: "Bilal", total: 7, customers: 14, coverage: "85%" },
     ],
     [
-      { name: "Anna Taylor", total: 18, customers: 15, coverage: "85%" },
-      { name: "Tom Hanks", total: 11, customers: 8, coverage: "75%" },
+      { name: "Bilal", total: 18, customers: 15, coverage: "85%" },
+      { name: "Mustafa", total: 11, customers: 8, coverage: "75%" },
       { name: "Ali", total: 10, customers: 15, coverage: "95%" },
     ],
 
@@ -77,10 +77,10 @@ const Dashboard = () => {
   return (
     <>  
 
-    <div className='flex-auto w-full h-full' >
+    <div className='w-full h-full ' >
      
-      <nav className=' w-full dark:bg-gradient-to-r
-                from-blue-800 to-purple-950 border-gray-700 absolute top-0 right-0 size-13' >
+      <nav className='w-full dark:bg-gradient-to-r
+       from-blue-800 to-purple-950 border-gray-700 absolute top-0 right-0 size-13 ' >
       <div className='flex'>
       <div className="relative">
       
@@ -125,7 +125,7 @@ const Dashboard = () => {
        <div className='text-white font-bold text-2xl m-2'>Dashboard
        </div>
        </div>
-       <ul className='flex absolute top-0 right-145 m-2'>
+       <ul className='flex absolute top-0 right-145 m-2 '>
   <li className=' text-2xl mr-6'>
     <a className="text-blue-500 hover:text-blue-600" href="#">Services</a>
   </li>
@@ -230,59 +230,54 @@ const Dashboard = () => {
 
 
 
-      <div class="relative h-30 bg-gradient-to-r  from-blue-600 to-purple-800 mt-20">
+      <div class="relative h-30 mt-20 grid-cols-2 xl:grid-cols-4 ">
         
-        <div class="absolute inset-0 bg-gradient-to-r  from-blue-700 to-purple-800 opacity-50 z-10">
+        <div class="absolute inset-0  opacity-50 ">
         </div>
-        <div class="absolute inset-0  flex items-center justify-between  dark:text-blue-600 z-20  m-4">
-            <div class="bg-white p-2  rounded-lg shadow-lg w-45 h-25">
-   <svg class="w-12 h-15 mr-1 text-gray-800 dark:text-blue-600 float-right" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+        <div class="absolute inset-0  flex flex-row items-center justify-around xl:grid-cols-4    dark:text-blue-600   m-4">
+            <div class="bg-white p-2  rounded-lg shadow-lg w-40 h-20">
+   <svg class="w-10 h-10 mr-1 text-gray-800 dark:text-blue-600 float-right" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4.5V19a1 1 0 0 0 1 1h15M7 14l4-4 4 4 5-5m0 0h-3.207M20 9v3.207"/>
 </svg>
-                <h1 class="text-lg font-bold mt-1">
-                    Item Sales
-                </h1>
-                <p class="text-sm ml-2 mt-4  float-right ">
+                
+                <h2 className='float-left text-md text-purple-500 ml-1'>56520,352</h2>
+                <p class="text-sm float-left ml-1 mt-1">
                     YTD TP Value
                 </p>
             </div>
-            <div class="bg-white p-2   rounded-lg shadow-lg w-50 h-25 ">
-    <svg class="w-12 h-15 mr-1 text-gray-800 dark:text-blue-600 float-right" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <div class="bg-white p-2   rounded-lg shadow-lg w-40 h-20 ">
+    <svg class="w-10 h-10 mr-1 text-gray-800 dark:text-blue-600 float-right" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4.5V19a1 1 0 0 0 1 1h15M7 14l4-4 4 4 5-5m0 0h-3.207M20 9v3.207"/>
 </svg>
 
-                <h1 class="text-lg font-bold mt-2">
-                   New Sales
-                </h1>
-                <h2 className='float-left text-md text-purple-500'>56520,352</h2>
-                <p class="text-sm float-right ml-2 mt-1">
-                    YTD TP Value
+                
+                <h2 className='float-left text-md text-purple-500 ml-1'>56520,352</h2>
+                <p class="text-sm float-left ml-1 mt-1">
+                    YTD TP Target
                 </p>
             </div>
             <div class="bg-white p-2 
-                        rounded-lg shadow-lg w-30">
-                          <svg className="w-6 h-6 text-gray-800 dark:text-blue-600 float-right" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        rounded-lg shadow-lg w-40 h-20">
+                          <svg className="w-10 h-10 mr-1 mt-1 text-gray-800 dark:text-blue-600 float-right" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
   <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312"/>
 </svg>
 
-                <h1 class="text-md font-bold mb-1">
-                    Total Products
-                </h1>
-                <p class="text-sm text-center">
-                    YTD TP Value
+               
+                <h2 className='float-left text-md text-purple-500'>56520,352</h2>
+                <p class="text-sm float-left mt-2 ml-2">
+                    YTD TP Percentage
                 </p>
             </div>
-            <div class="bg-white p-2 rounded-lg shadow-lg w-30">
-                          <svg className="w-6 h-6 text-gray-800 dark:text-blue-600 float-right " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+            <div class="bg-white p-2 rounded-lg shadow-lg w-40 h-20">
+                          <svg className="w-10 h-10 mr-1 mt-1 text-gray-800 dark:text-blue-600 float-right " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
   <path d="M6 2c-1.10457 0-2 .89543-2 2v4c0 .55228.44772 1 1 1s1-.44772 1-1V4h12v7h-2c-.5523 0-1 .4477-1 1v2h-1c-.5523 0-1 .4477-1 1s.4477 1 1 1h5c.5523 0 1-.4477 1-1V3.85714C20 2.98529 19.3667 2 18.268 2H6Z"/>
   <path d="M6 11.5C6 9.567 7.567 8 9.5 8S13 9.567 13 11.5 11.433 15 9.5 15 6 13.433 6 11.5ZM4 20c0-2.2091 1.79086-4 4-4h3c2.2091 0 4 1.7909 4 4 0 1.1046-.8954 2-2 2H6c-1.10457 0-2-.8954-2-2Z"/>
 </svg>
 
-                <h1 class="text-md font-bold mb-1">
-                    New Visitor
-                </h1>
-                <p class="text-sm ">
-                    YTD TP Value
+                
+                <h2 className='float-left text-md text-purple-500'>56520,352</h2>
+                <p class="text-sm float-left ml-2 mt-2">
+                    YTD ACH UCC 
                 </p>
             </div>
         </div>
