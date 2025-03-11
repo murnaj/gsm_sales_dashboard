@@ -45,10 +45,6 @@ const Login = () => {
         
         }
 
-     
-
-    
-  
     return (
     
     <div className='h-130 w-90 mt-15  mb-15 p-8  justify-center dark:bg-gradient-to-r
