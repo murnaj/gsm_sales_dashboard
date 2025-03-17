@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Chart as ChartJS, defaults, BarElement } from "chart.js/auto";
-import { Bar, Line } from "react-chartjs-2";
+import { Bar, Line, Pie } from "react-chartjs-2";
+
+
 
 // defaults.maintainAspectRatio = false;
 // defaults.responsive = true;
@@ -79,7 +81,7 @@ const Dashboard = () => {
 
       <div className='w-full h-full' >
 
-      <nav className="w-full dark:bg-gradient-to-r from-blue-800 to-purple-950 border-gray-700 fixed top-0 z-50">
+      <nav className="w-full dark:bg-gradient-to-r from-blue-800 to-purple-950 border-gray-700 fixed top-0 z-50 ">
       <div className="flex flex-wrap items-center justify-between px-4 py-2">
         {/* Sidebar Button and Logo */}
         <div className="flex items-center">
@@ -364,7 +366,7 @@ const Dashboard = () => {
               </svg>
               <div class="flex flex-col">
                 <h2 class="text-md text-purple-500">4,546,405</h2>
-                <p class="text-sm mt-1">YTD TP Value</p>
+                <p class="text-sm mt-1">MTD TP Value</p>
               </div>
             </div>
 
@@ -386,7 +388,7 @@ const Dashboard = () => {
               </svg>
               <div class="flex flex-col">
                 <h2 class="text-md text-purple-500">56,520,352</h2>
-                <p class="text-sm mt-1">YTD TP Target</p>
+                <p class="text-sm mt-1">MTD TP Target</p>
               </div>
             </div>
 
@@ -408,7 +410,7 @@ const Dashboard = () => {
               </svg>
               <div class="flex flex-col">
                 <h2 class="text-md text-purple-500">35.0%</h2>
-                <p class="text-sm mt-1">YTD TP Percentage</p>
+                <p class="text-sm mt-1">MTD TP Percentage</p>
               </div>
             </div>
 
@@ -429,13 +431,13 @@ const Dashboard = () => {
               </svg>
               <div class="flex flex-col">
                 <h2 class="text-md text-purple-500">496</h2>
-                <p class="text-sm mt-1">YTD ACH UCC</p>
+                <p class="text-sm mt-1">MTD ACH UCC</p>
               </div>
             </div>
           </div>
         </div>
 
-
+  
 
 
         <br />
@@ -494,6 +496,56 @@ const Dashboard = () => {
             />
           </div>
         </div>
+
+        <br />
+
+        <div className='flex justify-around bg-gradient-to-r from-blue-700 to-purple-900 w-full  mt-4 rounded-2xl border p-2 '>
+          
+        <div className="h-80 w-full md:w-[30rem] m-1  p-3 bg-white rounded-lg shadow-lg ">
+            <Pie
+              data={{
+                labels: ['June', 'July', 'Aug'],
+                datasets: [
+                  {
+                    label: 'Revenue',
+                    data: [200, 800, 1200],
+                    backgroundColor: ["#1C64F2", "#16BDCA", "#9061F9"],
+                    borderWidth: 4,
+                    borderColor: ["#1C64F2", "#16BDCA", "#9061F9"],
+                  },
+
+                
+                ],
+              }}
+            />
+          </div>
+
+          <div className="h-80 w-full md:w-[30rem] m-1  p-3 bg-white rounded-lg shadow-lg ">
+            <Pie
+              data={{
+                labels: ['June', 'July', 'Aug'],
+                datasets: [
+                  {
+                    label: 'Revenue',
+                    data: [200, 800, 1200],
+                    backgroundColor: ["#1C64F2", "#16BDCA", "#9061F9"],
+                    borderWidth: 4,
+                    borderColor: ["#1C64F2", "#16BDCA", "#9061F9"],
+                  },
+
+                
+                ],
+              }}
+            />
+          </div>
+        
+          
+          </div> 
+
+
+
+
+
 
 
 

@@ -47,7 +47,7 @@ const Login = () => {
 
     return (
     
-    <div className='h-130 w-90 mt-15  mb-15 p-8  justify-center dark:bg-gradient-to-r
+    <div className='h-full w-90 mt-15  mb-15 p-8  justify-center dark:bg-gradient-to-r
                 from-blue-900 to-purple-900 border border-slate-400 rounded-md 
      flex-grow  flex-col items-center  max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 overscroll-y-none'>
         <div>
