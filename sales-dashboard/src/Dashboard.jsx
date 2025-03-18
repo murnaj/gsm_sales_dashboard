@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Chart as ChartJS, defaults, BarElement } from "chart.js/auto";
-import { Bar, Line, Pie } from "react-chartjs-2";
+import { Bar, Line, Pie,Doughnut } from "react-chartjs-2";
 
 
 
@@ -11,7 +11,7 @@ import { Bar, Line, Pie } from "react-chartjs-2";
 
 
 const Dashboard = () => {
-  // const navigate = useNavigate();
+   const navigate = useNavigate();
 
   // useEffect(() => {
 
@@ -81,30 +81,31 @@ const Dashboard = () => {
 
       <div className='w-full h-full' >
 
-      <nav className="w-full dark:bg-gradient-to-r from-blue-800 to-purple-950 border-gray-700 fixed top-0 z-50 ">
-      <div className="flex flex-wrap items-center justify-between px-4 py-2">
-        {/* Sidebar Button and Logo */}
-        <div className="flex items-center">
-          <button onClick={toggleSidebar} className="mr-4">
-            <img
-              className="w-8 h-8"
-              src="https://flowbite.com/docs/images/logo.svg"
-              alt="Dashboard Logo"
-            />
-          </button>
-          <span className="text-white font-bold text-lg  md:block">
-            Dashboard
-          </span>
-        </div>
+        <nav className="w-full dark:bg-gradient-to-r from-blue-800 to-purple-950 border-gray-700 fixed top-0 z-50 ">
+          <div className="flex flex-wrap items-center justify-between px-4 py-2">
+           
+            {/* Sidebar Button and Logo */}
+            <div className="flex items-center">
+              <button onClick={toggleSidebar} className="mr-4">
+                <img
+                  className="w-8 h-8"
+                  src="https://flowbite.com/docs/images/logo.svg"
+                  alt="Dashboard Logo"
+                />
+              </button>
+              <span className="text-white font-bold text-lg  md:block">
+                Dashboard
+              </span>
+            </div>
 
-        {/* Main Navigation Links */}
-        <ul className="  md:flex items-center space-x-8">
-          <li>
-            <a className="text-blue-500 hover:text-blue-600 text-md" href="#">
-              Services
-            </a>
-          </li>
-          <li>
+            {/* Main Navigation Links */}
+            <ul className=" md:flex items-center ">
+              <li>
+                <a className="text-blue-500 hover:text-blue-600 text-xl" href="#">
+                 GSM-SALES
+                </a>
+              </li>
+              {/* <li>
             <a className="text-blue-500 hover:text-blue-600 text-md" href="#">
               Current Rate
             </a>
@@ -113,163 +114,115 @@ const Dashboard = () => {
             <a className="text-blue-500 hover:text-blue-600 text-md" href="#">
               Contact
             </a>
-          </li>
-        </ul>
-
-        {/* Search and Profile Section */}
-        <div className="flex items-center space-x-4">
-          <div className="relative  md:block">
-            <input
-              type="text"
-              placeholder="Search"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="border border-slate-700 bg-white text-blue-900 rounded-md px-4 py-1"
-            />
-            <button onClick={handleSearch} className="absolute right-2 top-1">
-              <svg
-                className="w-5 h-5 text-gray-800"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeWidth="2"
-                  d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"
-                />
-              </svg>
-            </button>
-          </div>
-
-          <button
-            className="w-10 h-10"
-            type="button"
-            onClick={() => setShowDropdown(!showDropdown)}
-          >
-            <svg
-              className="w-8 h-8 text-gray-800 dark:text-white"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                fillRule="evenodd"
-                d="M12 20a7.966 7.966 0 0 1-5.002-1.756l.002.001v-.683c0-1.794 1.492-3.25 3.333-3.25h3.334c1.84 0 3.333 1.456 3.333 3.25v.683A7.966 7.966 0 0 1 12 20ZM2 12C2 6.477 6.477 2 12 2s10 4.477 10 10c0 5.5-4.44 9.963-9.932 10h-.138C6.438 21.962 2 17.5 2 12Zm10-5c-1.84 0-3.333 1.455-3.333 3.25S10.159 13.5 12 13.5c1.84 0 3.333-1.455 3.333-3.25S13.841 7 12 7Z"
-                clipRule="evenodd"
-              />
-            </svg>
-          </button>
-
-          {showDropdown && (
-            <div className="absolute top-12 right-0 bg-white shadow-lg rounded-lg p-4">
-              <a
-                className="block text-blue-500 font-bold hover:text-blue-700"
-                href="/login"
-              >
-                Log Out
-              </a>
-              <span className="block text-blue-500 font-bold hover:text-blue-700">
-                Settings
-              </span>
-            </div>
-          )}
-        </div>
-
-        {/* Sidebar */}
-        {isSidebarOpen && (
-          <div className="absolute top-0 left-0 w-60 h-screen bg-gradient-to-r from-blue-800 to-purple-950 text-white shadow-lg z-50">
-            <button onClick={toggleSidebar} className="flex items-center p-4">
-              <img
-                className="h-10 "
-                src="https://flowbite.com/docs/images/logo.svg"
-                alt="Dashboard Logo"
-              />
-              <span className="ml-4 font-serif text-lg">GSM-SALES</span>
-            </button>
-
-            <ul className="p-2 space-y-5 mt-4">
-              <li>
-                <a
-                  href="#"
-                  className="block hover:text-blue-400 font-serif border-b-2 pb-3"
-                >
-                  Dashboard
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="block hover:text-blue-400 font-serif border-b-2 pb-3"
-                >
-                  Customers
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="block hover:text-blue-400 font-serif border-b-2 pb-3"
-                >
-                  Sales
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="block hover:text-blue-400 font-serif border-b-2 pb-3"
-                >
-                  Reports
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="block hover:text-blue-400 font-serif border-b-2 pb-3"
-                >
-                  Targets
-                </a>
-              </li>
+          </li> */}
             </ul>
+
+            {/* Search and Profile Section */}
+            <div className="flex items-center space-x-4">
+              <div className="relative  md:block">
+                <input
+                  type="text"
+                  placeholder="Search"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="border border-slate-700 bg-white text-blue-900 rounded-md px-4 py-1"
+                />
+                <button onClick={handleSearch} className="absolute right-2 top-1">
+                  <svg
+                    className="w-5 h-5 text-gray-800"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke="currentColor"
+                      strokeLinecap="round"
+                      strokeWidth="2"
+                      d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"
+                    />
+                  </svg>
+                </button>
+              </div>
+
+              <button
+                className="w-10 h-10"
+                type="button"
+                onClick={() => setShowDropdown(!showDropdown)}
+              >
+                <svg
+                  className="w-8 h-8 text-gray-800 dark:text-white"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M12 20a7.966 7.966 0 0 1-5.002-1.756l.002.001v-.683c0-1.794 1.492-3.25 3.333-3.25h3.334c1.84 0 3.333 1.456 3.333 3.25v.683A7.966 7.966 0 0 1 12 20ZM2 12C2 6.477 6.477 2 12 2s10 4.477 10 10c0 5.5-4.44 9.963-9.932 10h-.138C6.438 21.962 2 17.5 2 12Zm10-5c-1.84 0-3.333 1.455-3.333 3.25S10.159 13.5 12 13.5c1.84 0 3.333-1.455 3.333-3.25S13.841 7 12 7Z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </button>
+
+              {showDropdown && (
+                <div className="absolute top-12 right-0 bg-white shadow-lg rounded-lg p-4">
+                  <a
+                    className="block text-blue-500 font-bold hover:text-blue-700"
+                    href="/login"
+                  >
+                    Log Out
+                  </a>
+                  <div className="block text-blue-500 font-bold hover:text-blue-700">
+                    Settings
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Sidebar */}
+            {isSidebarOpen && (
+              <div className="absolute top-0 left-0 w-60 h-screen bg-gradient-to-r from-blue-800 to-purple-950 text-white shadow-lg z-50">
+                <button onClick={toggleSidebar} className="flex items-center p-4">
+                  <img
+                    className="h-10 "
+                    src="https://flowbite.com/docs/images/logo.svg"
+                    alt="Dashboard Logo"
+                  />
+                  <span className="ml-4 font-serif text-lg">GSM-SALES</span>
+                </button>
+
+                <ul className="p-2 space-y-5 mt-4">
+                  <li>
+                    <a href="#" className="block hover:text-blue-400 font-serif border-b-2 pb-3">Dashboard</a>
+                  </li>
+                  <li>
+                    <a href="#" className="block hover:text-blue-400 font-serif border-b-2 pb-3">Services</a>
+                  </li>
+                  <li>
+  <a
+    href="#"
+    onClick={(e) => {
+      e.preventDefault(); // Prevent default anchor behavior
+      navigate('/employee-status'); // Use your navigation logic here
+    }}
+    className="block hover:text-blue-400 font-serif border-b-2 pb-3"
+  >
+    Run Sale
+  </a>
+</li>
+                  <li>
+                    <a href="#" className="block hover:text-blue-400 font-serif border-b-2 pb-3">Contact Us</a>
+                  </li>
+                  <li>
+                    <a href="#" className="block hover:text-blue-400 font-serif border-b-2 pb-3">TP Targets</a>
+                  </li>
+                </ul>
+              </div>
+            )}
           </div>
-        )}
-      </div>
-    </nav>
+        </nav>
         <br />
 
-        {/* <div className= "flex  w-full h-20 ml-2 mt-15 p-2 dark:bg-blue-800 absolute inset-0  z-10 ">
-       <div className='bg-white m-1 p-1 w-30 absolute inset-0 z-20'>
-        <span className=' text-slate-700 font-bold ml-2 '>TRAFFIC</span>
-        
-        <span className='float-left mt-0.5 m-2'>350,897</span>
-        <img className=' float-right mr-3' src='/src/assets/icon-img1.png'></img>
-
-       </div>
-       <div className='bg-white m-1 p-1 text-slate-700 w-32'>
-        <span className=' text-slate-700 font-bold m-2 mb-2 '>New Users</span>
-        <br /> 
-        <span className=' ml-2 mb-2'>2,356</span>
-        <img className=' mx-2 float-right' src='/src/assets/icon-img2.png'></img>
-
-       </div>
-       <div className='bg-white m-1 p-1 text-slate-700 w-25'>
-       <span className=' text-slate-700 font-bold m-1'>Sales</span>
-       <br /> 
-       <span className='float-left mx-1'>924</span>
-       <img className='float-right ml-4 ' src='/src/assets/icon-img3.png'></img>
-
-       </div>
-       <div className='bg-white m-1 p-1 text-slate-700 w-45'>
-       <span className=' text-slate-700 font-bold mx-2'>PERFORMANCE</span>
-        <br /> 
-        <span className='float-left mx-2'>49,65%</span> 
-        <img className='float-right ml-2 ' src='/src/assets/icon-img4.png'></img>
-
-       </div>
-
-        </div> */}
-
-
+       
 
         <div class="relative h-auto mt-20">
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 dark:text-blue-600 m-4">
@@ -437,7 +390,7 @@ const Dashboard = () => {
           </div>
         </div>
 
-  
+
 
 
         <br />
@@ -500,25 +453,6 @@ const Dashboard = () => {
         <br />
 
         <div className='flex justify-around bg-gradient-to-r from-blue-700 to-purple-900 w-full  mt-4 rounded-2xl border p-2 '>
-          
-        <div className="h-80 w-full md:w-[30rem] m-1  p-3 bg-white rounded-lg shadow-lg ">
-            <Pie
-              data={{
-                labels: ['June', 'July', 'Aug'],
-                datasets: [
-                  {
-                    label: 'Revenue',
-                    data: [200, 800, 1200],
-                    backgroundColor: ["#1C64F2", "#16BDCA", "#9061F9"],
-                    borderWidth: 4,
-                    borderColor: ["#1C64F2", "#16BDCA", "#9061F9"],
-                  },
-
-                
-                ],
-              }}
-            />
-          </div>
 
           <div className="h-80 w-full md:w-[30rem] m-1  p-3 bg-white rounded-lg shadow-lg ">
             <Pie
@@ -533,14 +467,34 @@ const Dashboard = () => {
                     borderColor: ["#1C64F2", "#16BDCA", "#9061F9"],
                   },
 
-                
+
                 ],
               }}
             />
           </div>
-        
-          
-          </div> 
+
+          <div className="h-80 w-full md:w-[30rem] m-1  p-3 bg-white rounded-lg shadow-lg ">
+            <Doughnut
+              data={{
+                labels: ['June', 'July', 'Aug'],
+                datasets: [
+                  {
+                    label: 'Revenue',
+                    data: [200, 800, 1200],
+                    backgroundColor: ["#1C64F2", "#16BDCA", "#9061F9"],
+                    borderWidth: 2,
+                    borderRadius:1,
+                    borderColor: ["#1C64F2", "#16BDCA", "#9061F9"],
+                  },
+
+
+                ],
+              }}
+            />
+          </div>
+
+
+        </div>
 
 
 
@@ -602,9 +556,9 @@ const Dashboard = () => {
 
         <footer className="flex flex-col md:flex-row justify-between items-center h-10 p-2 m-1">
 
-          <span className="text-sm md:text-base">
+          <div className="text-sm md:text-base">
             &copy; 2025 GSM Sales
-          </span>
+          </div>
 
 
           <div className="flex space-x-6 mt-2 md:mt-0">
