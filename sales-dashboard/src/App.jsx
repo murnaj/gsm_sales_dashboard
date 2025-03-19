@@ -58,8 +58,12 @@ function App() {
           <Route path="login" element={<Login />} />
           <Route path="registration" element={<Registration />} />
           <Route path="dashboard" element={<Dashboard />} />
-          <Route path="/employee-status" element={<EmployeeStatus />} />
+          <Route path="/run-sale" element={<EmployeeStatus />} />
+                 
         </Routes>
+     
+
+
 
         {/* <Router>
   <Error>

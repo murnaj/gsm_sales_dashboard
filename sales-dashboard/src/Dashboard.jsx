@@ -202,7 +202,7 @@ const Dashboard = () => {
     href="#"
     onClick={(e) => {
       e.preventDefault(); // Prevent default anchor behavior
-      navigate('/employee-status'); // Use your navigation logic here
+      navigate('/run-sale'); // Use your navigation logic here
     }}
     className="block hover:text-blue-400 font-serif border-b-2 pb-3"
   >

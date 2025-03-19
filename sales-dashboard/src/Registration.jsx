@@ -178,7 +178,7 @@ export const Registration = () => {
             </button>
             <div>
 
-              <span className=' tracking-wide text-blue-400'>Already Have an account?<Link className='  text-blue-500 ' to='/login'>Login</Link></span>
+              <span className=' tracking-wide text-blue-400'>Already Have an account?<Link className='  text-blue-500 mx-1' to='/login'>Login</Link></span>
             </div>
           </form>
         </div>

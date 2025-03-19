@@ -47,7 +47,7 @@ const Login = () => {
 
     return (
     
-    <div className='size-120 w-90 mt-15 mb-15 p-8  justify-center dark:bg-gradient-to-r
+    <div className='size-100 w-90 mt-15 mb-15 p-8  justify-center dark:bg-gradient-to-r
                 from-blue-900 to-purple-900 border border-slate-400 rounded-md 
      flex-grow  flex-col items-center  max-w-7xl mx-auto px-4 md:px-6 lg:px-8 overscroll-y-none'>
         <div>
@@ -88,7 +88,7 @@ const Login = () => {
           </button>
               <div>
             <span className=' text-blue-300'>New Here?
-              <Link className='text-blue-500' to='/registration' >
+              <Link className='text-blue-500 mx-1' to='/registration' >
             Create an Account</Link></span>
             </div>
             </form>

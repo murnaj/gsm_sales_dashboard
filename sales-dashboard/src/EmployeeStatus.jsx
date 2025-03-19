@@ -1,9 +1,9 @@
 import React, { useState } from "react";
+import { BsFillTrashFill, BsFillPencilFill } from "react-icons/bs";
 
 const tabs = ["Zone1", "Zone2", "Zone3", "Zone4"];
 
-const contents = [
-
+const initialContents = [
   [
     { name: "Ahmed", total: 12, customers: 8, coverage: "80%" },
     { name: "Haris", total: 14, customers: 9, coverage: "85%" },
@@ -24,28 +24,65 @@ const contents = [
     { name: "Mustafa", total: 11, customers: 8, coverage: "75%" },
     { name: "Ali", total: 10, customers: 15, coverage: "95%" },
   ],
-
-
-
-]
+];
 
 function EmployeeStatus() {
   const [activeTab, setActiveTab] = useState(0);
+  const [contents, setContents] = useState(initialContents);
+  const [editingIndex, setEditingIndex] = useState(null);
+  const [newRow, setNewRow] = useState({ name: "", total: "", customers: "", coverage: "" });
+  const [showForm, setShowForm] = useState(false);
+
+  const handleSaveEdit = () => {
+    const updatedTab = contents[activeTab].map((item, index) =>
+      index === editingIndex ? newRow : item
+    );
+    const updatedContents = [...contents];
+    updatedContents[activeTab] = updatedTab;
+    setContents(updatedContents);
+    setEditingIndex(null);
+    setNewRow({ name: "", total: "", customers: "", coverage: "" });
+  };
+
+  const handleAddRow = () => {
+    if (!newRow.name || !newRow.total || !newRow.customers || !newRow.coverage) {
+      alert("Please fill out all fields before adding.");
+      return;
+    }
+    const updatedTab = [...contents[activeTab], newRow];
+    const updatedContents = [...contents];
+    updatedContents[activeTab] = updatedTab;
+    setContents(updatedContents);
+    setShowForm(false);
+    setNewRow({ name: "", total: "", customers: "", coverage: "" });
+  };
+
+  const handleEdit = (index) => {
+    setEditingIndex(index);
+    setNewRow(contents[activeTab][index]);
+    setShowForm(true);
+  };
+
+  const handleDelete = (index) => {
+    const updatedTab = contents[activeTab].filter((_, i) => i !== index);
+    const updatedContents = [...contents];
+    updatedContents[activeTab] = updatedTab;
+    setContents(updatedContents);
+  };
 
   return (
-    <div className="bg-gradient-to-r from-blue-700 to-purple-900 w-full h-screen mt-5 rounded-3xl border p-2 ">
-      <div className="text-xl font-bold flex justify-center mb-4">
-        Employee Status
-      </div>
-      <div className="flex flex-wrap justify-center mb-4">
+    <div className="min-w-fit h-screen mt-5 m-2">
+      <div className="text-xl font-bold flex justify-center mb-4">Employee Status</div>
+      <div className="flex flex-col md:flex-row justify-center mb-4">
         {tabs.map((tab, index) => (
           <button
             onClick={() => setActiveTab(index)}
             key={`tab_${index}`}
-            className={`px-6 py-2 m-2 rounded-md ${activeTab === index
-              ? "bg-blue-700 text-white"
-              : "bg-gray-400 hover:bg-blue-800 hover:text-white"
-              }`}
+            className={`px-6 py-2 m-2 rounded-md ${
+              activeTab === index
+                ? "bg-blue-700 text-white"
+                : "bg-gray-400 hover:bg-blue-800 hover:text-white"
+            }`}
           >
             {tab}
           </button>
@@ -59,6 +96,7 @@ function EmployeeStatus() {
               <th className="px-4 py-2">Total</th>
               <th className="px-4 py-2">Customers</th>
               <th className="px-4 py-2">Coverage</th>
+              <th className="px-4 py-2 text-center">Action</th>
             </tr>
           </thead>
           <tbody>
@@ -71,10 +109,83 @@ function EmployeeStatus() {
                 <td className="px-4 py-2">{item.total}</td>
                 <td className="px-4 py-2">{item.customers}</td>
                 <td className="px-4 py-2">{item.coverage}</td>
+                <td className="px-8 py-2 flex justify-center gap-2">
+                  <button onClick={() => handleEdit(index)}>
+                    <BsFillPencilFill  />
+                  </button>
+                  <button onClick={() => handleDelete(index)}>
+                    <BsFillTrashFill  />
+                  </button>
+                </td>
               </tr>
             ))}
           </tbody>
         </table>
+
+        {showForm && (
+          <div className="mt-4 border p-4 rounded bg-gray-100">
+            <h2 className="text-lg font-bold mb-2">
+              {editingIndex !== null ? "Edit Row" : "Add New Row"}
+            </h2>
+            <div className="flex gap-4 mb-2">
+              <input
+                type="text"
+                placeholder="Name"
+                value={newRow.name}
+                onChange={(e) => setNewRow({ ...newRow, name: e.target.value })}
+                className="px-2 py-1 border rounded w-full"
+              />
+              <input
+                type="number"
+                placeholder="Total"
+                value={newRow.total}
+                onChange={(e) => setNewRow({ ...newRow, total: e.target.value })}
+                className="px-2 py-1 border rounded w-full"
+              />
+              <input
+                type="number"
+                placeholder="Customers"
+                value={newRow.customers}
+                onChange={(e) => setNewRow({ ...newRow, customers: e.target.value })}
+                className="px-2 py-1 border rounded w-full"
+              />
+              <input
+                type="text"
+                placeholder="Coverage"
+                value={newRow.coverage}
+                onChange={(e) => setNewRow({ ...newRow, coverage: e.target.value })}
+                className="px-2 py-1 border rounded w-full"
+              />
+            </div>
+            <div className="flex gap-4">
+              <button
+                onClick={editingIndex !== null ? handleSaveEdit : handleAddRow}
+                className="px-4 py-2 bg-blue-700 text-white rounded-md hover:bg-blue-800"
+              >
+                {editingIndex !== null ? "Save" : "Add"}
+              </button>
+              <button
+                onClick={() => {
+                  setShowForm(false);
+                  setEditingIndex(null);
+                  setNewRow({ name: "", total: "", customers: "", coverage: "" });
+                }}
+                className="px-4 py-2 bg-gray-400 text-black rounded-md hover:bg-gray-500"
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        )}
+
+        {!showForm && (
+          <button
+            onClick={() => setShowForm(true)}
+            className="mt-4 px-4 py-2 bg-gray-400 hover:bg-blue-800 hover:text-white"
+          >
+            Add New Row
+          </button>
+        )}
       </div>
     </div>
   );
