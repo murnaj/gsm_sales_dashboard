@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { BsFillTrashFill, BsFillPencilFill } from "react-icons/bs";
 
-const tabs = ["Zone1", "Zone2", "Zone3", "Zone4"];
+const tabs = ["June", "July", "Aug", "Sept"];
 
 const initialContents = [
   [
@@ -72,7 +72,7 @@ function EmployeeStatus() {
 
   return (
     <div className="min-w-fit h-screen mt-5 m-2">
-      <div className="text-xl font-bold flex justify-center mb-4">Employee Status</div>
+      <div className="text-xl font-bold flex justify-center mb-4">Run Sale</div>
       <div className="flex flex-col md:flex-row justify-center mb-4">
         {tabs.map((tab, index) => (
           <button

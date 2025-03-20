@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Chart as ChartJS, defaults, BarElement } from "chart.js/auto";
-import { Bar, Line, Pie,Doughnut } from "react-chartjs-2";
+import { Bar, Line, Pie, Doughnut } from "react-chartjs-2";
+import Chart from "react-apexcharts";
 
 
 
@@ -11,7 +12,105 @@ import { Bar, Line, Pie,Doughnut } from "react-chartjs-2";
 
 
 const Dashboard = () => {
-   const navigate = useNavigate();
+  
+  const chartOptions = {
+    chart: {
+      height: "100%",
+      width: "100%",
+      type: "area",
+      fontFamily: "Inter, sans-serif",
+      dropShadow: {
+        enabled: false,
+      },
+      toolbar: {
+        show: false,
+      },
+      sparkline: {
+        enabled: false,
+      },
+    },
+    xaxis: {
+      show: true,
+      categories: [
+        "01 Feb",
+        "02 Feb",
+        "03 Feb",
+        "04 Feb",
+        "05 Feb",
+        "06 Feb",
+        "07 Feb",
+      ],
+      labels: {
+        show: true,
+        style: {
+          fontFamily: "Inter, sans-serif",
+          cssClass: "text-xs font-normal fill-gray-500 dark:fill-gray-400",
+        },
+      },
+      axisBorder: {
+        show: false,
+      },
+      axisTicks: {
+        show: false,
+      },
+    },
+    yaxis: {
+      show: true,
+      labels: {
+        show: true,
+        style: {
+          fontFamily: "Inter, sans-serif",
+          cssClass: "text-xs font-normal fill-gray-500 dark:fill-gray-400",
+        },
+        formatter: function (value) {
+          return "$" + value;
+        },
+      },
+    },
+    series: [
+      {
+        name: "Developer Edition",
+        data: [150, 141, 145, 152, 135, 125],
+        color: "#1A56DB",
+      },
+      {
+        name: "Designer Edition",
+        data: [43, 13, 65, 12, 42, 73],
+        color: "#7E3BF2",
+      },
+    ],
+    tooltip: {
+      enabled: true,
+      x: {
+        show: false,
+      },
+    },
+    fill: {
+      type: "gradient",
+      gradient: {
+        opacityFrom: 0.55,
+        opacityTo: 0,
+        shade: "#1C64F2",
+        gradientToColors: ["#1C64F2"],
+      },
+    },
+    dataLabels: {
+      enabled: false,
+    },
+    stroke: {
+      width: 6,
+    },
+    legend: {
+      show: false,
+    },
+    grid: {
+      show: false,
+    },
+  };
+  
+  
+  
+  const navigate = useNavigate();
 
   // useEffect(() => {
 
@@ -83,7 +182,7 @@ const Dashboard = () => {
 
         <nav className="w-full dark:bg-gradient-to-r from-blue-800 to-purple-950 border-gray-700 fixed top-0 z-50 ">
           <div className="flex flex-wrap items-center justify-between px-4 py-2">
-           
+
             {/* Sidebar Button and Logo */}
             <div className="flex items-center">
               <button onClick={toggleSidebar} className="mr-4">
@@ -93,7 +192,7 @@ const Dashboard = () => {
                   alt="Dashboard Logo"
                 />
               </button>
-              <span className="text-white font-bold text-lg  md:block">
+              <span className="text-white font-bold text-lg md:inline-block">
                 Dashboard
               </span>
             </div>
@@ -102,30 +201,21 @@ const Dashboard = () => {
             <ul className=" md:flex items-center ">
               <li>
                 <a className="text-blue-500 hover:text-blue-600 text-xl" href="#">
-                 GSM-SALES
+                  GSM-SALES
                 </a>
               </li>
-              {/* <li>
-            <a className="text-blue-500 hover:text-blue-600 text-md" href="#">
-              Current Rate
-            </a>
-          </li>
-          <li>
-            <a className="text-blue-500 hover:text-blue-600 text-md" href="#">
-              Contact
-            </a>
-          </li> */}
+
             </ul>
 
             {/* Search and Profile Section */}
             <div className="flex items-center space-x-4">
-              <div className="relative  md:block">
+              <div className="relative hidden md:block">
                 <input
                   type="text"
                   placeholder="Search"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="border border-slate-700 bg-white text-blue-900 rounded-md px-4 py-1"
+                  className="border border-slate-700 bg-white text-blue-900 rounded-md px-2 py-1"
                 />
                 <button onClick={handleSearch} className="absolute right-2 top-1">
                   <svg
@@ -187,7 +277,7 @@ const Dashboard = () => {
                     src="https://flowbite.com/docs/images/logo.svg"
                     alt="Dashboard Logo"
                   />
-                  <span className="ml-4 font-serif text-lg">GSM-SALES</span>
+                  <span className=" font-serif text-lg">GSM-SALES</span>
                 </button>
 
                 <ul className="p-2 space-y-5 mt-4">
@@ -198,17 +288,17 @@ const Dashboard = () => {
                     <a href="#" className="block hover:text-blue-400 font-serif border-b-2 pb-3">Services</a>
                   </li>
                   <li>
-  <a
-    href="#"
-    onClick={(e) => {
-      e.preventDefault(); // Prevent default anchor behavior
-      navigate('/run-sale'); // Use your navigation logic here
-    }}
-    className="block hover:text-blue-400 font-serif border-b-2 pb-3"
-  >
-    Run Sale
-  </a>
-</li>
+                    <a
+                      href="#"
+                      onClick={(e) => {
+                        e.preventDefault(); // Prevent default anchor behavior
+                        navigate('/run-sale'); // Use your navigation logic here
+                      }}
+                      className="block hover:text-blue-400 font-serif border-b-2 pb-3"
+                    >
+                      Run Sale
+                    </a>
+                  </li>
                   <li>
                     <a href="#" className="block hover:text-blue-400 font-serif border-b-2 pb-3">Contact Us</a>
                   </li>
@@ -222,7 +312,7 @@ const Dashboard = () => {
         </nav>
         <br />
 
-       
+
 
         <div class="relative h-auto mt-20">
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 dark:text-blue-600 m-4">
@@ -452,48 +542,66 @@ const Dashboard = () => {
 
         <br />
 
-        <div className='flex justify-around bg-gradient-to-r from-blue-700 to-purple-900 w-full  mt-4 rounded-2xl border p-2 '>
+        <div className='flex flex-row md:flex-row justify-center flex-wrap rounded-md gap-4 m-2 p-2 mt-5'>
 
-          <div className="h-80 w-full md:w-[30rem] m-1  p-3 bg-white rounded-lg shadow-lg ">
-            <Pie
-              data={{
-                labels: ['June', 'July', 'Aug'],
-                datasets: [
-                  {
-                    label: 'Revenue',
-                    data: [200, 800, 1200],
-                    backgroundColor: ["#1C64F2", "#16BDCA", "#9061F9"],
-                    borderWidth: 4,
-                    borderColor: ["#1C64F2", "#16BDCA", "#9061F9"],
-                  },
+        <div className=''>
+            <React.Fragment>
+              <Chart
+              type='pie'
+              width={1349}  
+              height={550}
+                 
+              series={[190, 100, 160, ]}
 
+              options={ {
 
-                ],
+                labels: ['June', 'July', 'Aug']
               }}
-            />
+               
+              >
+
+              </Chart>
+            </React.Fragment>
+          </div>
+          
+          <div>
+          <React.Fragment>
+              <Chart
+               type='radialBar'
+               width={1349}  
+               height={550}
+                 
+              series={[35.1, 23.5, 2.4, 5.4]}
+
+              options={ {
+
+                labels: ['June', 'July', 'Aug']
+              }}
+               
+              >
+
+              </Chart>
+            </React.Fragment>
           </div>
 
-          <div className="h-80 w-full md:w-[30rem] m-1  p-3 bg-white rounded-lg shadow-lg ">
-            <Doughnut
-              data={{
-                labels: ['June', 'July', 'Aug'],
-                datasets: [
-                  {
-                    label: 'Revenue',
-                    data: [200, 800, 1200],
-                    backgroundColor: ["#1C64F2", "#16BDCA", "#9061F9"],
-                    borderWidth: 2,
-                    borderRadius:1,
-                    borderColor: ["#1C64F2", "#16BDCA", "#9061F9"],
-                  },
+          
+
+         
 
 
-                ],
-              }}
-            />
-          </div>
+        </div>
 
 
+        <div className='bg-white w-[70rem] h-[40rem]'>
+        <div id="labels-chart">
+      <Chart
+        options={chartOptions}
+        series={chartOptions.series}
+        type="area"
+        height={550}
+        width="100%"
+      />
+    </div>
         </div>
 
 
@@ -502,16 +610,16 @@ const Dashboard = () => {
 
 
 
+        <div class="flex items-center justify-center ">
 
-
-        <div className="bg-gradient-to-r from-blue-700 to-purple-900 w-full mt-4 rounded-3xl border p-2  ">
+        <div className="bg-gradient-to-r from-blue-700 to-purple-900 w-[26rem] md:w-[60rem] mt-4 ml-1 mr-1 rounded-4xl border p-4  ">
 
           <div className="text-xl font-bold flex justify-center mb-4">
             Employee Status
           </div>
 
 
-          <div className="flex flex-wrap justify-center mb-4">
+          <div className="flex flex-wrap  justify-center mb-4">
             {tabs.map((tab, index) => (
               <button
                 onClick={() => setActiveTab(index)}
@@ -552,6 +660,8 @@ const Dashboard = () => {
               </tbody>
             </table>
           </div>
+        </div>
+
         </div>
 
         <footer className="flex flex-col md:flex-row justify-between items-center h-10 p-2 m-1">
