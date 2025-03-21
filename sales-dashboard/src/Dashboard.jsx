@@ -69,12 +69,12 @@ const Dashboard = () => {
     },
     series: [
       {
-        name: "Developer Edition",
-        data: [150, 141, 145, 152, 135, 125],
+        name: "YTD TP Value",
+        data: [160, 121, 155, 132, 165, 125],
         color: "#1A56DB",
       },
       {
-        name: "Designer Edition",
+        name: "MTD TP Value",
         data: [43, 13, 65, 12, 42, 73],
         color: "#7E3BF2",
       },
@@ -88,7 +88,7 @@ const Dashboard = () => {
     fill: {
       type: "gradient",
       gradient: {
-        opacityFrom: 0.55,
+        opacityFrom: 0.70,
         opacityTo: 0,
         shade: "#1C64F2",
         gradientToColors: ["#1C64F2"],
@@ -487,7 +487,7 @@ const Dashboard = () => {
 
         <div className="flex flex-row md:flex-row justify-center flex-wrap  gap-4 m-2 p-2 mt-5 ">
 
-          <div className="flex h-80 w-full md:w-[35rem] m-1 p-3 bg-white rounded-lg shadow-lg ">
+          <div className="flex h-90 w-full md:w-[40rem] m-1 p-3 bg-white rounded-3xl shadow-2xl ">
             <Bar
               data={{
                 labels: ['June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec', 'Jan', 'Feb'],
@@ -508,48 +508,29 @@ const Dashboard = () => {
           </div>
 
 
-          <div className="h-80 w-full md:w-[35rem] m-1 p-3 bg-white rounded-lg shadow-lg ">
-            <Line
-              data={{
-                labels: ['June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec', 'Jan', 'Feb'],
-                datasets: [
-                  {
-                    label: 'Revenue',
-                    data: [200, 600, 500, 700, 600, 800, 700, 750, 600],
-                    backgroundColor: ["rgba(43, 63, 229, 0.8 )"],
-                    borderWidth: 4,
-                    borderColor: ["rgb(43, 63, 229, 0.8)"],
-
-
-
-
-
-
-                  },
-                  {
-                    label: 'Loss',
-                    data: [190, 180, 100, 160, 500, 430, 430, 200, 500],
-                    backgroundColor: ["rgba(54, 162, 235, 0.5 )"],
-                    borderWidth: 4,
-                    borderColor: ["rgba(54, 162, 235, 0.5 )"],
-
-                  },
-                ],
-              }}
-            />
+          <div className="h-90 w-full md:w-[40rem] m-1 p-3 bg-white rounded-3xl shadow-2xl ">
+          <div  id="labels-chart">
+      <Chart
+        options={chartOptions}
+        series={chartOptions.series}
+        type="area"
+        height={300}
+        width="100%"
+      />
+    </div>
           </div>
         </div>
 
         <br />
 
-        <div className='flex flex-row md:flex-row justify-center flex-wrap rounded-md gap-4 m-2 p-2 mt-5'>
+        <div className='flex flex-row md:flex-row justify-center flex-wrap  gap-4 m-2 p-2 mt-5 h-fit'>
 
-        <div className=''>
+        <div className='bg-white rounded-3xl shadow-2xl flex justify-center items-center h-90 w-full md:w-[40rem] m-1 p-3'>
             <React.Fragment>
               <Chart
               type='pie'
-              width={1349}  
-              height={550}
+              width={449}  
+              height={500}
                  
               series={[190, 100, 160, ]}
 
@@ -564,12 +545,12 @@ const Dashboard = () => {
             </React.Fragment>
           </div>
           
-          <div>
+          <div className='bg-white rounded-3xl shadow-2xl flex justify-center items-center h-90 w-full md:w-[40rem] m-1 p-3'>
           <React.Fragment>
               <Chart
                type='radialBar'
-               width={1349}  
-               height={550}
+               width={449}  
+               height={350}
                  
               series={[35.1, 23.5, 2.4, 5.4]}
 
@@ -592,17 +573,7 @@ const Dashboard = () => {
         </div>
 
 
-        <div className='bg-white w-[70rem] h-[40rem]'>
-        <div id="labels-chart">
-      <Chart
-        options={chartOptions}
-        series={chartOptions.series}
-        type="area"
-        height={550}
-        width="100%"
-      />
-    </div>
-        </div>
+        
 
 
 
