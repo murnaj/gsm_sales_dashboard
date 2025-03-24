@@ -1,9 +1,50 @@
 import React, { useState } from "react";
 import { BsFillTrashFill, BsFillPencilFill } from "react-icons/bs";
 
-const tabs = ["June", "July", "Aug", "Sept"];
-
+const tabs = ["Jan", "Feb", "Mar", "April","May","Jun", "Jul", "Aug", "Sept","Oct","Nov","Dec"];
 const initialContents = [
+  [
+    { name: "Ahmed", total: 12, customers: 8, coverage: "80%" },
+    { name: "Haris", total: 14, customers: 9, coverage: "85%" },
+    { name: "Ali", total: 10, customers: 15, coverage: "95%" },
+  ],
+  [
+    { name: "Kumail", total: 15, customers: 12, coverage: "90%" },
+    { name: "Murtaza", total: 10, customers: 7, coverage: "70%" },
+    { name: "Ahmed", total: 8, customers: 10, coverage: "75%" },
+  ],
+  [
+    { name: "Alyan", total: 10, customers: 7, coverage: "70%" },
+    { name: "Sarah", total: 16, customers: 13, coverage: "95%" },
+    { name: "Bilal", total: 7, customers: 14, coverage: "85%" },
+  ],
+  [
+    { name: "Bilal", total: 18, customers: 15, coverage: "85%" },
+    { name: "Mustafa", total: 11, customers: 8, coverage: "75%" },
+    { name: "Ali", total: 10, customers: 15, coverage: "95%" },
+  ],
+
+  [
+    { name: "Ahmed", total: 12, customers: 8, coverage: "80%" },
+    { name: "Haris", total: 14, customers: 9, coverage: "85%" },
+    { name: "Ali", total: 10, customers: 15, coverage: "95%" },
+  ],
+  [
+    { name: "Kumail", total: 15, customers: 12, coverage: "90%" },
+    { name: "Murtaza", total: 10, customers: 7, coverage: "70%" },
+    { name: "Ahmed", total: 8, customers: 10, coverage: "75%" },
+  ],
+  [
+    { name: "Alyan", total: 10, customers: 7, coverage: "70%" },
+    { name: "Sarah", total: 16, customers: 13, coverage: "95%" },
+    { name: "Bilal", total: 7, customers: 14, coverage: "85%" },
+  ],
+  [
+    { name: "Bilal", total: 18, customers: 15, coverage: "85%" },
+    { name: "Mustafa", total: 11, customers: 8, coverage: "75%" },
+    { name: "Ali", total: 10, customers: 15, coverage: "95%" },
+  ],
+
   [
     { name: "Ahmed", total: 12, customers: 8, coverage: "80%" },
     { name: "Haris", total: 14, customers: 9, coverage: "85%" },
@@ -73,7 +114,7 @@ function EmployeeStatus() {
   return (
     <div className="min-w-fit h-screen mt-5 m-2">
       <div className="text-xl font-bold flex justify-center mb-4">Run Sale</div>
-      <div className="flex flex-col md:flex-row justify-center mb-4">
+      <div className=" grid-cols-4 gap-3 md:flex-row md:flex justify-center items-center  mb-4">
         {tabs.map((tab, index) => (
           <button
             onClick={() => setActiveTab(index)}
@@ -89,7 +130,7 @@ function EmployeeStatus() {
         ))}
       </div>
       <div className="overflow-x-auto">
-        <table className="w-full text-sm text-left text-black">
+        <table className="md:w-full text-sm text-left text-black">
           <thead className="text-xs text-gray-700 uppercase bg-gray-200">
             <tr>
               <th className="px-4 py-2">Name</th>

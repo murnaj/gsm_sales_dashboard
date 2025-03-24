@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Chart as ChartJS, defaults, BarElement } from "chart.js/auto";
-import { Bar, Line, Pie, Doughnut } from "react-chartjs-2";
+import { Bar } from "react-chartjs-2";
 import Chart from "react-apexcharts";
 
 
@@ -70,12 +70,12 @@ const Dashboard = () => {
     series: [
       {
         name: "YTD TP Value",
-        data: [160, 121, 155, 132, 165, 125],
+        data: [160, 180, 155, 132, 185, 125],
         color: "#1A56DB",
       },
       {
         name: "MTD TP Value",
-        data: [43, 13, 65, 12, 42, 73],
+        data: [43, 13, 105, 12, 42, 73],
         color: "#7E3BF2",
       },
     ],
@@ -273,11 +273,11 @@ const Dashboard = () => {
               <div className="absolute top-0 left-0 w-60 h-screen bg-gradient-to-r from-blue-800 to-purple-950 text-white shadow-lg z-50">
                 <button onClick={toggleSidebar} className="flex items-center p-4">
                   <img
-                    className="h-10 "
+                    className="h-10"
                     src="https://flowbite.com/docs/images/logo.svg"
                     alt="Dashboard Logo"
                   />
-                  <span className=" font-serif text-lg">GSM-SALES</span>
+                  <span className="font-serif text-lg ml-2">GSM-SALES</span>
                 </button>
 
                 <ul className="p-2 space-y-5 mt-4">
@@ -300,7 +300,16 @@ const Dashboard = () => {
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="block hover:text-blue-400 font-serif border-b-2 pb-3">Contact Us</a>
+                    <a
+                      href="#"
+                      onClick={(e) => {
+                        e.preventDefault(); 
+                        navigate('/upload-sale'); 
+                      }}
+                      className="block hover:text-blue-400 font-serif border-b-2 pb-3"
+                    >
+                      Upload Sale
+                    </a>
                   </li>
                   <li>
                     <a href="#" className="block hover:text-blue-400 font-serif border-b-2 pb-3">TP Targets</a>
@@ -532,9 +541,9 @@ const Dashboard = () => {
               width={449}  
               height={500}
                  
-              series={[190, 100, 160, ]}
+              series={[190, 100, 160]}
 
-              options={ {
+              options={ { 
 
                 labels: ['June', 'July', 'Aug']
               }}
@@ -552,11 +561,13 @@ const Dashboard = () => {
                width={449}  
                height={350}
                  
-              series={[35.1, 23.5, 2.4, 5.4]}
+              series={[67, 84, 97, 61]}
 
               options={ {
 
-                labels: ['June', 'July', 'Aug']
+                labels: ['June', 'July', 'Aug'],
+
+              
               }}
                
               >

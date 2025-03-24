@@ -9,6 +9,7 @@ import Dashboard from './Dashboard'
 import EmployeeStatus from "./EmployeeStatus";
 import { useEffect } from "react";
 import { useState } from "react"
+import Uploadsale from "./Uploadsale";
 const URL = 'https://dummyjson.com/test'
 //  import Error from './Error';
 
@@ -59,7 +60,7 @@ function App() {
           <Route path="registration" element={<Registration />} />
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="/run-sale" element={<EmployeeStatus />} />
-                 
+          <Route path="/upload-sale" element={<Uploadsale />} />     
         </Routes>
      
 
