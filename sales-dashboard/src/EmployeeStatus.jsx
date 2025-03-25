@@ -1,5 +1,9 @@
 import React, { useState } from "react";
 import { BsFillTrashFill, BsFillPencilFill } from "react-icons/bs";
+import {Select, Option} from "@material-tailwind/react"
+
+
+
 
 const tabs = ["Jan", "Feb", "Mar", "April","May","Jun", "Jul", "Aug", "Sept","Oct","Nov","Dec"];
 const initialContents = [
@@ -111,9 +115,25 @@ function EmployeeStatus() {
     setContents(updatedContents);
   };
 
+
+  
+
   return (
     <div className="min-w-fit h-screen mt-5 m-2">
-      <div className="text-xl font-bold flex justify-center mb-4">Run Sale</div>
+      <div className="text-xl font-bold flex justify-center mb-4">Run Sale
+
+      <div className="w-5">
+      <Select label="Select Year">
+        <Option>2025</Option>
+        <Option>2024</Option>
+        <Option>2023</Option>
+        <Option>2022</Option>
+        <Option>2021</Option>
+      </Select>
+    </div>
+
+      </div>
+      
       <div className=" grid-cols-4 gap-3 md:flex-row md:flex justify-center items-center  mb-4">
         {tabs.map((tab, index) => (
           <button
@@ -129,15 +149,15 @@ function EmployeeStatus() {
           </button>
         ))}
       </div>
-      <div className="overflow-x-auto">
-        <table className="md:w-full text-sm text-left text-black">
+      <div className="overflow-x-auto ">
+        <table className="  md:w-full  text-sm text-left text-black">
           <thead className="text-xs text-gray-700 uppercase bg-gray-200">
             <tr>
               <th className="px-4 py-2">Name</th>
               <th className="px-4 py-2">Total</th>
               <th className="px-4 py-2">Customers</th>
               <th className="px-4 py-2">Coverage</th>
-              <th className="px-4 py-2 text-center">Action</th>
+              <th className="px-2 py-2 text-center">Action</th>
             </tr>
           </thead>
           <tbody>
@@ -150,7 +170,7 @@ function EmployeeStatus() {
                 <td className="px-4 py-2">{item.total}</td>
                 <td className="px-4 py-2">{item.customers}</td>
                 <td className="px-4 py-2">{item.coverage}</td>
-                <td className="px-8 py-2 flex justify-center gap-2">
+                <td className="px-2 py-2 flex justify-center gap-1">
                   <button onClick={() => handleEdit(index)}>
                     <BsFillPencilFill  />
                   </button>

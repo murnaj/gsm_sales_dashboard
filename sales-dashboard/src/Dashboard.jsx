@@ -12,7 +12,7 @@ import Chart from "react-apexcharts";
 
 
 const Dashboard = () => {
-  
+
   const chartOptions = {
     chart: {
       height: "100%",
@@ -107,9 +107,9 @@ const Dashboard = () => {
       show: false,
     },
   };
-  
-  
-  
+
+
+
   const navigate = useNavigate();
 
   // useEffect(() => {
@@ -303,8 +303,8 @@ const Dashboard = () => {
                     <a
                       href="#"
                       onClick={(e) => {
-                        e.preventDefault(); 
-                        navigate('/upload-sale'); 
+                        e.preventDefault();
+                        navigate('/upload-sale');
                       }}
                       className="block hover:text-blue-400 font-serif border-b-2 pb-3"
                     >
@@ -518,15 +518,15 @@ const Dashboard = () => {
 
 
           <div className="h-90 w-full md:w-[40rem] m-1 p-3 bg-white rounded-3xl shadow-2xl ">
-          <div  id="labels-chart">
-      <Chart
-        options={chartOptions}
-        series={chartOptions.series}
-        type="area"
-        height={300}
-        width="100%"
-      />
-    </div>
+            <div id="labels-chart">
+              <Chart
+                options={chartOptions}
+                series={chartOptions.series}
+                type="area"
+                height={300}
+                width="100%"
+              />
+            </div>
           </div>
         </div>
 
@@ -534,115 +534,101 @@ const Dashboard = () => {
 
         <div className='flex flex-row md:flex-row justify-center flex-wrap  gap-4 m-2 p-2 mt-5 h-fit'>
 
-        <div className='bg-white rounded-3xl shadow-2xl flex justify-center items-center h-90 w-full md:w-[40rem] m-1 p-3'>
+          <div className='  bg-white rounded-3xl shadow-2xl flex justify-center items-center h-90 w-full md:w-[40rem] m-1 p-3'>
             <React.Fragment>
               <Chart
-              type='pie'
-              width={449}  
-              height={500}
-                 
-              series={[190, 100, 160]}
+                type='pie'
+                width={380}
+                height={500}
 
-              options={ { 
+                series={[190, 100, 160]}
 
-                labels: ['June', 'July', 'Aug']
-              }}
-               
+                options={{
+
+                  labels: ['June', 'July', 'Aug']
+                }}
+
               >
 
               </Chart>
             </React.Fragment>
           </div>
-          
+
           <div className='bg-white rounded-3xl shadow-2xl flex justify-center items-center h-90 w-full md:w-[40rem] m-1 p-3'>
-          <React.Fragment>
+            <React.Fragment>
               <Chart
-               type='radialBar'
-               width={449}  
-               height={350}
-                 
-              series={[67, 84, 97, 61]}
+                type='radialBar'
+                width={449}
+                height={350}
 
-              options={ {
+                series={[67, 84, 97, 61]}
 
-                labels: ['June', 'July', 'Aug'],
+                options={{
 
-              
-              }}
-               
+                  labels: ['June', 'July', 'Aug'],
+
+
+                }}
+
               >
 
               </Chart>
             </React.Fragment>
           </div>
-
-          
-
-         
-
 
         </div>
-
-
-        
-
-
-
-
-
-
 
         <div class="flex items-center justify-center ">
 
-        <div className="bg-gradient-to-r from-blue-700 to-purple-900 w-[26rem] md:w-[60rem] mt-4 ml-1 mr-1 rounded-4xl border p-4  ">
+          <div className="bg-gradient-to-r from-blue-700 to-purple-900 w-[26rem] md:w-[60rem] mt-4 ml-1 mr-1 rounded-4xl border p-4  ">
 
-          <div className="text-xl font-bold flex justify-center mb-4">
-            Employee Status
-          </div>
-
-
-          <div className="flex flex-wrap  justify-center mb-4">
-            {tabs.map((tab, index) => (
-              <button
-                onClick={() => setActiveTab(index)}
-                key={`tab_${index}`}
-                className={`px-6 py-2 m-2 rounded-md ${activeTab === index
-                  ? "bg-blue-700 text-white"
-                  : "bg-gray-400 hover:bg-blue-800 hover:text-white"
-                  }`}
-              >
-                {tab}
-              </button>
-            ))}
-          </div>
+            <div className="text-xl font-bold flex justify-center mb-4">
+              Employee Status
+            </div>
 
 
-          <div className="overflow-x-auto">
-            <table className="w-full text-sm text-left text-black">
-              <thead className="text-xs text-gray-700 uppercase bg-gray-200">
-                <tr>
-                  <th className="px-4 py-2">Name</th>
-                  <th className="px-4 py-2">Total</th>
-                  <th className="px-4 py-2">Customers</th>
-                  <th className="px-4 py-2">Coverage</th>
-                </tr>
-              </thead>
-              <tbody>
-                {contents[activeTab].map((item, index) => (
-                  <tr
-                    key={`row_${index}`}
-                    className="bg-gray-400 border-b hover:bg-gray-50"
-                  >
-                    <td className="px-4 py-2">{item.name}</td>
-                    <td className="px-4 py-2">{item.total}</td>
-                    <td className="px-4 py-2">{item.customers}</td>
-                    <td className="px-4 py-2">{item.coverage}</td>
+            <div className="flex flex-wrap  justify-center mb-4">
+              {tabs.map((tab, index) => (
+                <button
+                  onClick={() => setActiveTab(index)}
+                  key={`tab_${index}`}
+                  className={`px-6 py-2 m-2 rounded-md ${activeTab === index
+                    ? "bg-blue-700 text-white"
+                    : "bg-gray-400 hover:bg-blue-800 hover:text-white"
+                    }`}
+                >
+                  {tab}
+                </button>
+              ))}
+            </div>
+
+
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm text-left text-black">
+                <thead className="text-xs text-gray-700 uppercase bg-gray-200">
+                  <tr>
+                    <th className="px-4 py-2">Name</th>
+                    <th className="px-4 py-2">Total</th>
+                    <th className="px-4 py-2">Customers</th>
+                    <th className="px-4 py-2">Coverage</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {contents[activeTab].map((item, index) => (
+                    <tr
+                      key={`row_${index}`}
+                      className="bg-gray-400 border-b hover:bg-gray-50"
+                    >
+                      <td className="px-4 py-2">{item.name}</td>
+                      <td className="px-4 py-2">{item.total}</td>
+                      <td className="px-4 py-2">{item.customers}</td>
+                      <td className="px-4 py-2">{item.coverage}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
-        </div>
 
         </div>
 
