@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { BsFillTrashFill, BsFillPencilFill } from "react-icons/bs";
-import {Select, Option} from "@material-tailwind/react"
+import { Select, Option } from "@material-tailwind/react"
 
 
 
 
-const tabs = ["Jan", "Feb", "Mar", "April","May","Jun", "Jul", "Aug", "Sept","Oct","Nov","Dec"];
+const tabs = ["Jan", "Feb", "Mar", "April", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
 const initialContents = [
   [
     { name: "Ahmed", total: 12, customers: 8, coverage: "80%" },
@@ -116,34 +116,34 @@ function EmployeeStatus() {
   };
 
 
-  
+
 
   return (
-    <div className="min-w-fit h-screen mt-5 m-2">
-      <div className="text-xl font-bold flex justify-center mb-4">Run Sale
+    <div className=" min-w-full md:min-w-fit h-screen mt-5  m-2">
+      <div className="text-xl font-bold flex-end flex md:justify-center  mb-4">Run Sale
 
-      <div className="w-5">
-      <Select label="Select Year">
-        <Option>2025</Option>
-        <Option>2024</Option>
-        <Option>2023</Option>
-        <Option>2022</Option>
-        <Option>2021</Option>
-      </Select>
-    </div>
+
+        <div className="w-0 ml-2 bg-white">
+          <Select label="Select Year">
+            <Option>2025</Option>
+            <Option>2024</Option>
+            <Option>2023</Option>
+            <Option>2022</Option>
+            <Option>2021</Option>
+          </Select>
+        </div>
 
       </div>
-      
+
       <div className=" grid-cols-4 gap-3 md:flex-row md:flex justify-center items-center  mb-4">
         {tabs.map((tab, index) => (
           <button
             onClick={() => setActiveTab(index)}
             key={`tab_${index}`}
-            className={`px-6 py-2 m-2 rounded-md ${
-              activeTab === index
+            className={`px-6 py-2 m-2 rounded-md ${activeTab === index
                 ? "bg-blue-700 text-white"
                 : "bg-gray-400 hover:bg-blue-800 hover:text-white"
-            }`}
+              }`}
           >
             {tab}
           </button>
@@ -172,10 +172,10 @@ function EmployeeStatus() {
                 <td className="px-4 py-2">{item.coverage}</td>
                 <td className="px-2 py-2 flex justify-center gap-1">
                   <button onClick={() => handleEdit(index)}>
-                    <BsFillPencilFill  />
+                    <BsFillPencilFill />
                   </button>
                   <button onClick={() => handleDelete(index)}>
-                    <BsFillTrashFill  />
+                    <BsFillTrashFill />
                   </button>
                 </td>
               </tr>

@@ -1,51 +1,67 @@
-import React from 'react'
-import  { useState } from 'react'
-
-
+import React, { useState } from 'react';
 
 const Uploadsale = () => {
 
   const [selectedFile, setSelectedFile] = useState(null);
-const [uploadProgress, setUploadProgress] = useState(0);
-const [uploadSuccess, setUploadSuccess] = useState(false);
+  const [uploadProgress, setUploadProgress] = useState(0);
+  const [uploadSuccess, setUploadSuccess] = useState(false);
+  const [isUploading, setIsUploading] = useState(false);
 
-const handleFileChange = (event) => {
-  setSelectedFile(event.target.files[0]);
-  setUploadProgress(0);
-  setUploadSuccess(false);
-};
+  const handleFileChange = (event) => {
+    setSelectedFile(event.target.files[0]);
+    setUploadProgress(0);
+    setUploadSuccess(false);
+  };
 
-const handleFileUpload = () => {
-  if (!selectedFile) return;
+  const handleFileUpload = () => {
+    if (!selectedFile) return;
 
-  // Simulating file upload with a fake progress
-  const fakeUpload = setInterval(() => {
-    setUploadProgress((prevProgress) => {
-      if (prevProgress >= 100) {
-        clearInterval(fakeUpload);
-        setUploadSuccess(true);
-      }
-      return Math.min(prevProgress + 10, 100);
-    });
-  }, 300);
-};
+    setIsUploading(true);
+
+    // Simulating file upload with a fake progress
+    const fakeUpload = setInterval(() => {
+      setUploadProgress((prevProgress) => {
+        if (prevProgress >= 100) {
+          clearInterval(fakeUpload);
+          setUploadSuccess(true);
+          setIsUploading(false);
+        }
+        return Math.min(prevProgress + 10, 100);
+      });
+    }, 300);
+  };
 
   return (
-    <div className='size-100 w-90 mt-15 mb-15 p-8  justify-center dark:bg-gradient-to-r
-    from-blue-900 to-purple-900 border border-slate-400 rounded-md 
-flex-grow  flex-col items-center  max-w-7xl mx-auto px-4 md:px-6 lg:px-8 overscroll-y-none'>
-        <img  className=' items-center w-20 ml-25 p-2 ' src='https://flowbite.com/docs/images/logo.svg' alt='Dashboard Logo'/>
+    <div className="relative">
+      {isUploading && (
+        <div
+          className="fixed inset-0 z-50"
+          style={{ cursor: 'none' }}
+        ></div>
+      )}
 
-    <div className='text-4xl  text-blue-500 text-center'>Upload Sale</div>
+      <div
+        className="size-100 w-90 mt-15 mb-15 p-8 justify-center dark:bg-gradient-to-r
+        from-blue-900 to-purple-900 border border-slate-400 rounded-md 
+        flex-grow flex-col items-center max-w-7xl mx-auto px-4 md:px-6 lg:px-8 overscroll-y-none"
+      >
+        <img
+          className="items-center w-20 ml-25 p-2"
+          src="https://flowbite.com/docs/images/logo.svg"
+          alt="Dashboard Logo"
+        />
 
-    <label
-          className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+        <div className="text-4xl text-blue-500 text-center">Upload Sale</div>
+
+        <label
+          className="block mb-2 text-2xl text-center font-bold mt-4 text-blue-500 dark:to-blue-500"
           htmlFor="file_input"
         >
           Upload file
         </label>
         <input
-          className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+          className="block w-full text-sm dark:bg-gradient-to-r
+        from-blue-900 to-purple-900 border border-slate-500 rounded-md  cursor-pointer "
           id="file_input"
           type="file"
           onChange={handleFileChange}
@@ -56,6 +72,7 @@ flex-grow  flex-col items-center  max-w-7xl mx-auto px-4 md:px-6 lg:px-8 overscr
             <button
               className="w-full px-4 py-2 text-white bg-blue-500 rounded-lg hover:bg-blue-600 focus:outline-none"
               onClick={handleFileUpload}
+              disabled={isUploading}
             >
               Upload File
             </button>
@@ -94,10 +111,9 @@ flex-grow  flex-col items-center  max-w-7xl mx-auto px-4 md:px-6 lg:px-8 overscr
             <span className="ml-2">Upload Successful!</span>
           </div>
         )}
-
-
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Uploadsale
+export default Uploadsale;

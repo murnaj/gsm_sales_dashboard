@@ -112,6 +112,7 @@ const Dashboard = () => {
 
   const navigate = useNavigate();
 
+  //Session Time Out
   // useEffect(() => {
 
   //   const timeout = setTimeout(() => {
