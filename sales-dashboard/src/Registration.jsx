@@ -128,8 +128,7 @@ export const Registration = () => {
          <p>Loading...</p>
        )}
      </div> */}
-    <div className='h-120 w-90 justify-center p-8 mt-17 mb-15 dark:bg-gradient-to-r
-                from-blue-900 to-purple-900 border border-slate-400 rounded-md  
+    <div className='h-full w-ful justify-center p-8 mt-17 mb-15 dark:bg-gradient-to-r  from-blue-900 to-purple-900 border border-slate-400 rounded-md  
     flex-grow  flex-col items-center  max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
     <img  className='object-top w-20 ml-25 p-2 ' src='https://flowbite.com/docs/images/logo.svg' alt='Dashboard Logo'/>
 
@@ -179,7 +178,7 @@ export const Registration = () => {
             </button>
             <div>
 
-              <span className=' tracking-wide text-blue-400'>Already Have an account?<Link className='  text-blue-500 ' to='/login'>Login</Link></span>
+              <span className=' tracking-wide text-blue-400'>Already Have an account?<Link className='  text-blue-500 mx-1' to='/login'>Login</Link></span>
             </div>
           </form>
         </div>
