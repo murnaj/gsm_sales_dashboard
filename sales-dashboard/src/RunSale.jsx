@@ -71,7 +71,7 @@ const initialContents = [
   ],
 ];
 
-function EmployeeStatus() {
+function RunSale() {
   const [activeTab, setActiveTab] = useState(0);
   const [contents, setContents] = useState(initialContents);
   const [editingIndex, setEditingIndex] = useState(null);
@@ -252,4 +252,4 @@ function EmployeeStatus() {
   );
 }
 
-export default EmployeeStatus;
+export default RunSale;
