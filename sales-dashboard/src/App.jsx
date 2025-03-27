@@ -6,7 +6,7 @@ import './App.css'
 import Login from './Login'
 import Registration from './Registration'
 import Dashboard from './Dashboard'
-import EmployeeStatus from "./EmployeeStatus";
+import RunSale from "./RunSale";
 import { useEffect } from "react";
 import { useState } from "react"
 import Uploadsale from "./Uploadsale";
@@ -60,7 +60,7 @@ function App() {
           <Route path="login" element={<Login />} />
           <Route path="registration" element={<Registration />} />
           <Route path="dashboard" element={<Dashboard />} />
-          <Route path="/run-sale" element={<EmployeeStatus />} />
+          <Route path="/run-sale" element={<RunSale />} />
           <Route path="/upload-sale" element={<Uploadsale />} />     
         </Routes>
      

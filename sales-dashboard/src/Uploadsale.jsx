@@ -13,22 +13,41 @@ const Uploadsale = () => {
     setUploadSuccess(false);
   };
 
-  const handleFileUpload = () => {
+  const handleFileUpload = async () => {
     if (!selectedFile) return;
-
+  
     setIsUploading(true);
-
-    // Simulating file upload with a fake progress
-    const fakeUpload = setInterval(() => {
-      setUploadProgress((prevProgress) => {
-        if (prevProgress >= 100) {
-          clearInterval(fakeUpload);
-          setUploadSuccess(true);
-          setIsUploading(false);
-        }
-        return Math.min(prevProgress + 10, 100);
+  
+    const formData = new FormData();
+    formData.append("file", selectedFile);
+  
+    try {
+      // Replace 'YOUR_API_URL' with your actual API endpoint
+      const response = await fetch("http://172.16.16.140:9999/api/v1/sale/mnpUpload", {
+        method: "POST",
+        body: formData,
       });
-    }, 300);
+  
+      if (!response.ok) {
+        throw new Error("Failed to upload file");
+      }
+  
+      // Simulating file upload progress
+      const fakeUpload = setInterval(() => {
+        setUploadProgress((prevProgress) => {
+          if (prevProgress >= 100) {
+            clearInterval(fakeUpload);
+            setUploadSuccess(true);
+            setIsUploading(false);
+          }
+          return Math.min(prevProgress + 10, 100);
+        });
+      }, 300);
+    } catch (error) {
+      console.error("Error uploading file:", error);
+      alert("File upload failed. Please try again.");
+      setIsUploading(false);
+    }
   };
 
   return (
@@ -69,13 +88,7 @@ const Uploadsale = () => {
 
         {selectedFile && (
           <div className="mt-4">
-            <button
-              className="w-full px-4 py-2 text-white bg-blue-500 rounded-lg hover:bg-blue-600 focus:outline-none"
-              onClick={handleFileUpload}
-              disabled={isUploading}
-            >
-              Upload File
-            </button>
+           
           </div>
         )}
 
